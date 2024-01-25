@@ -173,7 +173,8 @@ function save(){
 	dolphins,
 	emus,
 	falcons,
-	giraffes
+	giraffes,
+	ips
 	];
 	
 	localStorage['saveGame'] = btoa(JSON.stringify(allItems));
@@ -189,6 +190,7 @@ function load(){
 	emus = allItems[5];
 	falcons = allItems[6];
 	giraffes = allItems[7];
+	ips = allItems[8];
 	
 	document.getElementById("zoodollars").innerHTML = zoodollars;
 	document.getElementById("ants").innerHTML = ants;
@@ -198,6 +200,7 @@ function load(){
     document.getElementById("emus").innerHTML = emus;
 	document.getElementById("falcons").innerHTML = falcons;
 	document.getElementById("giraffes").innerHTML = giraffes;
+	document.getElementById("ips").innerHTML = ips;
 	
 	// Calc ants cost
 	var nextAntsCost = Math.floor(8 * Math.pow(1.1,ants));
@@ -248,8 +251,8 @@ function load(){
 	var totalGiraffesIncome = giraffes * 25;
 	document.getElementById('totaGiraffesIncome').innerHTML = totaGiraffesIncome;
 	
-	var ips = totalAntsIncome + totalButterflysIncome + totalCaterpillarsIncome + totalDolphinsIncome + totaEmusIncome + totalFalconsIncome + totaGiraffesIncome;
-	document.getElementById('ips').innerHTML = ips;
+	//var ips = totalAntsIncome + totalButterflysIncome + totalCaterpillarsIncome + totalDolphinsIncome + totaEmusIncome + totalFalconsIncome + totaGiraffesIncome;
+	//document.getElementById('ips').innerHTML = ips;
 };
 
 function addFunds2(){
