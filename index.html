@@ -1,0 +1,146 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="interface.css" />
+	</head>
+	<body>
+		
+	<img src="zooclickersbanner.jpg" alt="Zoo Clickers Banner" >
+	<br><br><br>
+			<a href="#" class="saveload" onclick="save()">Save</a>
+		<a href="#" class="saveload" onclick="load()">Load</a>
+		<br>
+			<div id="divider2"> </div>
+		<br>
+	<div id="introText">Welcome to Zoo Clickers. The idle clicker game that is sure to make you go bananas. Click the bag of money below to earn Zoo Dollars manually. Gather enough dollars and you can purchase animals for your exhibits to bring in more visitors who will pay to enter your zoo. More money comes in, you buy more animals, which in turn earns more money, so that you can buy more animals. You get the picture. You need to invest your money to make more money. Their is one goal; to make as much money as possible. Good Luck Zookeeper.
+		</div>
+		<br /><br><br><br>
+		<a href="#" class="manualButton" title="Click Here to add Funds manually." onclick="addFunds2()"></a>
+		
+		<div data-tooltip="Your income per click is equal to the number shown next to Lvl:">
+		<br><br><button id="btnUpg" onclick="upgradeFunds()">Upgrade - Lvl: 1, Cost 10</button>
+		</div>
+		
+		<h2><b>Zoo Dollars:</b> <span id="zoodollars">0</span></h2>
+		<h3><b>Income/s:</b> <span id="ips">0</span></h3>
+	
+		<div id="divider"> </div>
+		<br>
+		
+		<div id="exhTitle">
+		Exhibits
+		</div>
+		<br> 
+		
+		<!--Ant-->
+		<div id="backLow">
+		<div id="aniTitle">
+		<b>ANTS</b> (Income: 1)
+		</div>
+		<button title="I'm so tiny, but so strong... honestly." onclick="buyAnt()">Buy 1 Ant</button> <br />
+		<div id="noAnimals"> Ant(s): <span id="ants">0</span> </div>
+		<div id="costForNext"> Cost: <span id="antCost">8</span> </div>
+		<div id="totalIncome"> Total Income: <span id="totalAntsIncome">0</span> </div>
+		<br>
+		</div>
+		<!--Ant End-->
+		
+		<br>
+				
+		<!--Butterfly-->
+		<div id="backLow">
+		<div id="aniTitle">
+		<b>BUTTERFLYS</b> (Income: 2)
+		</div>
+		 <button title="I want to be a moth again..." onclick="buyButterfly()">Buy 1 Butterfly</button> <br/>
+		<div id="noAnimals"> Butterfly(s): <span id="butterflys">0</span> </div>
+		<div id="costForNext"> Cost: <span id="butterflyCost">16</span> </div>
+		<div id="totalIncome"> Total Income: <span id="totalButterflysIncome">0</span> </div>
+		<br>
+		</div>
+		<!--Butterfly End-->
+		
+		<br>
+		
+		<!--Caterpillar-->
+		<div id="backLow">
+		<div id="aniTitle">
+		<b>CATERPILLARS</b> (Income: 3)
+		</div>
+		<button title="I'm a very hungry caterpillar..." onclick="buyCaterpillar()">Buy 1 Caterpillar</button> <br />
+		<div id="noAnimals"> Caterpillar(s): <span id="caterpillars">0</span> </div>
+		<div id="costForNext"> Cost: <span id="caterpillarCost">32</span> </div>
+		<div id="totalIncome"> Total Income: <span id="totalCaterpillarsIncome">0</span> </div>
+		<br>
+		</div>
+		<!--Caterpillar End-->
+		
+		<br>
+	
+		<!--Dolphin-->
+		<div id="backLow">
+		<div id="aniTitle">
+		<b>DOLPHINS</b> (Income: 4)
+		</div>
+		<button onclick="buyDolphin()">Buy 1 Dolphin</button> <br />
+		<div id="noAnimals"> Dolphin(s): <span id="dolphins">0</span> </div>
+		<div id="costForNext"> Cost: <span id="dolphinCost">64</span> </div>
+		<div id="totalIncome"> Total Income: <span id="totalDolphinsIncome">0</span> </div>
+		<br>
+		</div>
+		<!--Dolphin End-->
+		
+		<br>
+	
+		<!--Emu-->
+		<div id="backLow">
+		<div id="aniTitle">
+		<b>EMUS</b> (Income: 5)
+		</div>
+		<button onclick="buyEmu()">Buy 1 Emu</button> <br />
+		<div id="noAnimals"> Emu(s): <span id="emus">0</span> </div>
+		<div id="costForNext"> Cost: <span id="emuCost">128</span> </div>
+		<div id="totalIncome"> Total Income: <span id="totalEmusIncome">0</span> </div>
+		<br>
+		</div>
+		<!--Emu End-->
+		
+		<br>
+	
+		<!--Falcon-->
+		<div id="backLow">
+		<div id="aniTitle">
+		<b>FALCONS</b> (Income: 10)
+		</div>
+		<button onclick="buyFalcon()">Buy 1 Falcon</button> <br />
+		<div id="noAnimals"> Falcon(s): <span id="falcons">0</span> </div>
+		<div id="costForNext"> Cost: <span id="falconCost">256</span> </div>
+		<div id="totalIncome"> Total Income: <span id="totalFalconsIncome">0</span> </div>
+		<br>
+		</div>
+		<!--Falcon End-->
+		
+		<br>
+	
+		<!--Giraffe-->
+		<div id="backLow">
+		<div id="aniTitle">
+		<b>GIRAFFES</b> (Income: 25)
+		</div>
+		<button onclick="buyGiraffe()">Buy 1 Giraffe</button> <br />
+		<div id="noAnimals"> Giraffe(s): <span id="giraffes">0</span> </div>
+		<div id="costForNext"> Cost: <span id="giraffeCost">512</span> </div>
+		<div id="totalIncome"> Total Income: <span id="totalGiraffesIncome">0</span> </div>
+		<br>
+		</div>
+		<!--Giraffe End-->
+		
+		<script type="text/javascript" src="main.js"></script>
+	</body>
+	
+	<footer>
+	<br>
+	If you have any questions re: Zoo Clickers, please tweet me @Ian_Fry.
+	<br>
+	© Ian Fry - 2015.
+	</footer>
+</html>
