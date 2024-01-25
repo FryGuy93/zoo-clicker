@@ -107,9 +107,13 @@ button {
 	margin-top: -30px;
 }
 
+button:hover {
+    background-color: #ffffff;
+}
+
 /*Button clicked*/
 button:active{
-	background-color:red;
+	background-color:white;
  }
 
 .manualButton {
@@ -159,6 +163,9 @@ button:active{
 	color: #FFFFFF;
 }
 
+#btnUpg:hover {
+    background-color: #000000;	
+}
 div:hover:before {
     content: attr(data-tooltip);
     position: absolute;
