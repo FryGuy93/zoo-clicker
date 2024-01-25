@@ -105,20 +105,43 @@ button {
     display:block;
 	margin-left: 425px;
 	margin-top: -30px;
-
 }
 
+button:hover {
+    background-color: #ffffff;
+}
+
+/*Button clicked*/
+button:active{
+	background-color:white;
+ }
+
 .manualButton {
-	background:url(zoodollarcoin.png) no-repeat;
+	background:url(zoodollarcoin_clicked.png) no-repeat;
 	margin-left: 20px;
 	padding:68px;
 }
 
 .manualButton:hover {
+	/*
 	background:url(zoodollarcoinhover.png) no-repeat;
+	*/
+	background:url(zoodollarcoin_hover.png) no-repeat;
 	margin-left: 20px;
 	padding:68px;
 }
+/*Add funds button clicked*/
+.manualButton:active{
+	/*
+	inset: 4px -4px 0 #000000;
+	border-radius: 555px;
+	background-color:red;
+	margin-top: 10px;
+    margin-left: 10px;
+	*/
+	background:url(zoodollarcoin.png) no-repeat;
+	margin-left: 2px;
+ }
 
 .saveload{
 	width: 50px;
@@ -140,6 +163,9 @@ button {
 	color: #FFFFFF;
 }
 
+#btnUpg:hover {
+    background-color: #000000;	
+}
 div:hover:before {
     content: attr(data-tooltip);
     position: absolute;
