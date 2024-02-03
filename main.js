@@ -163,7 +163,7 @@ function buyGiraffe(){
     document.getElementById('giraffeCost').innerHTML = nextCost;  //updates the cursor cost for the user
 };
 //Giraffes End
-
+// changed
 function save(){
 	var allItems = [
 	zoodollars,
