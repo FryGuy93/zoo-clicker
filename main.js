@@ -251,7 +251,8 @@ function save(){
 	emus,
 	falcons,
 	giraffes,
-	ips
+	ips,
+	btnUpgLvl
 	];
 	
 	localStorage['saveGame'] = btoa(JSON.stringify(allItems));
@@ -268,8 +269,14 @@ function load(){
 	falcons = allItems[6];
 	giraffes = allItems[7];
 	ips = allItems[8];
-	
+	btnUpgLvl = allItems[9];
+
 	document.getElementById("zoodollars").innerHTML = zoodollars;
+	document.getElementById("ips").innerHTML = ips;
+	btnUpgCost = Math.floor(10 * Math.pow(1.1,btnUpgLvl));
+	document.getElementById("btnUpg").innerHTML = "Upgrade - Lvl: " + btnUpgLvl + ", Cost: " + btnUpgCost;
+	
+	// Animals
 	document.getElementById("ants").innerHTML = ants;
 	document.getElementById("butterflys").innerHTML = butterflys;
 	document.getElementById("caterpillars").innerHTML = caterpillars;
@@ -277,8 +284,6 @@ function load(){
     document.getElementById("emus").innerHTML = emus;
 	document.getElementById("falcons").innerHTML = falcons;
 	document.getElementById("giraffes").innerHTML = giraffes;
-	document.getElementById("ips").innerHTML = ips;
-	
 	// Calc ants cost
 	var nextAntsCost = Math.floor(8 * Math.pow(1.1,ants));
     document.getElementById('antCost').innerHTML = nextAntsCost;
@@ -330,6 +335,7 @@ function load(){
 	
 	//var ips = totalAntsIncome + totalButterflysIncome + totalCaterpillarsIncome + totalDolphinsIncome + totaEmusIncome + totalFalconsIncome + totaGiraffesIncome;
 	//document.getElementById('ips').innerHTML = ips;
+
 };
 
 function addFunds2(){
