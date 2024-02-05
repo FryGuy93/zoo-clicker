@@ -1,8 +1,85 @@
+var isDebugMode = false; 
+var isDebugMode = true; // comment this out to disable debug mode and run in production mode
 var zoodollars = 0;
 var ips = 0;
 var onehundred = 1000000000;
 var btnUpgLvl = 1;
 var btnUpgCost = 10;
+
+//#region Debugging
+window.addEventListener("load", debugScript);
+
+// debug mode - show warning but display page differently - makes it easier to see and test changes
+function debugScript(){
+	// Load only debug website when in debug mode
+	if (isDebugMode && window.location.href.includes("index.html")) {
+		window.location.href = "./debug.html";
+	}
+	// Load only index when in production and on debug.html page
+	else if (!isDebugMode && window.location.href.includes("debug.html")) {
+		window.location.href = "./index.html";
+	}
+
+	// Add "DEBUGGING" to top of page
+	if (isDebugMode) {
+		document.body.innerHTML = `
+	<div style="position: fixed; top: 0; left: 0; width: 100%; background: red; font-size: 6px;">DEBUGGING</div>
+		`
+		+ document.body.innerHTML;
+	}
+}
+// Load pre configured setup - points, animals
+function loadPreset1(){
+	console.log("Load preset 1 pressed");
+	zoodollars = 10000;
+	document.getElementById("zoodollars").innerHTML = zoodollars;
+}
+
+//#region reset buttons
+function resetSave(){
+	console.log("Reset save pressed");
+	localStorage['saveGame'] = btoa(JSON.stringify());
+	//document.body.innerHTML = `<div>RESET SAVE</div>` + document.body.innerHTML;
+}
+
+function resetClickUpgrade(){
+	console.log("Reset click upgrade");
+	btnUpgLvl = 1;
+	btnUpgCost = 10; // reset to default
+	document.getElementById("btnUpg").innerHTML = "Upgrade - Lvl: " + btnUpgLvl + ", Cost: " + btnUpgCost;
+}
+
+function resetZooDollars(){
+	console.log("Reset zoo dollars");
+	zoodollars = 0;
+	document.getElementById("zoodollars").innerHTML = zoodollars;
+}
+
+function resetIncome(){
+	console.log("Reset income");
+	//ips = 0;
+	//document.getElementById('ips').innerHTML = ips;
+	resetAnts();
+	//... other animals
+}
+
+// Remove from income, reset animal
+function resetAnts(){
+	console.log("Reset ants");
+	ips -= totalAntsIncome;
+	document.getElementById('ips').innerHTML = ips;
+
+	ants = 0;
+	totalAntsIncome = 0;
+	document.getElementById('ants').innerHTML = 0;
+	//document.getElementById('zoodollars').innerHTML = zoodollars;  
+	document.getElementById('totalAntsIncome').innerHTML = 0;
+	document.getElementById('antCost').innerHTML = 8;  
+}
+// Other animals...
+
+//#endregion
+//#endregion
 
 function addFunds(number){
     zoodollars = zoodollars + number;

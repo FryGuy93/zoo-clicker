@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="interface.css" />
+	</head>
+	<body>
+		<div style="display: flex; outline: auto; background: gray;">
+			<div>Debugging panel:</div>
+			<div style="position: fixed; top: 0; left: 0; background: red; font-size: 6px;">DEBUG PAGE</div>
+			<br>
+			<button style="background-color: black; color: white; float: left; margin: 0;" onclick="loadPreset1()">Preset1</button>
+			<button style="float: left; margin: 0;" onclick="save()">Save</button>
+			<button style="float: left; margin: 0;" onclick="load()">Load</button>
+			<!-- a link moves the page up... changed to button-->
+			<button style="background-color: black; color: white; margin: 0;" onclick="resetSave()">Reset save</button>
+			<button style="margin: 0; padding: 16;" class="manualButton" title="Click Here to add Funds manually." onclick="addFunds2()"></button>
+			<button style="margin: 0;" id="btnUpg" onclick="upgradeFunds()">Upgrade - Lvl: 1, Cost 10</button>
+			<button style="background-color: black; color: white; margin: 0;" onclick="resetClickUpgrade()">Reset click upgrade</button>
+			<div><b>Zoo Dollars:</b> <span id="zoodollars">0</span></div>
+			<button style="background-color: black; color: white; margin: 0;" onclick="resetZooDollars()">Reset zoo dollars</button>
+			<div><b>Income/s:</b> <span id="ips">0</span></div>
+			<button style="background-color: black; color: white; margin: 0;" onclick="resetIncome()">Reset income</button>
+			<button style="margin: 0;" title="I'm so tiny, but so strong... honestly." onclick="buyAnt()">
+				Buy 1 Ant  
+				<br> 
+				Count:<span id="ants">0</span>
+				<br> 
+				Cost:<span id="antCost">8</span> 
+				<br> 
+				Total_Income:<span id="totalAntsIncome">0</span> 
+			</button> 
+			<button style="background-color: black; margin: 0;" id="btnUpg" onclick="resetAnts()">Reset ants</button>
+		</div>
+	
+		<!--Ant-->
+		<div id="backLow">
+		<div id="aniTitle">
+		<b>ANTS</b> (Income: 1)
+		</div>
+		<button title="I'm so tiny, but so strong... honestly." onclick="buyAnt()">Buy 1 Ant</button> 
+		<br />
+		<div id="noAnimals"> Ant(s): <span id="ants">0</span> 
+		</div>
+		<div id="costForNext"> Cost: <span id="antCost">8</span> 
+		</div>
+		<div id="totalIncome"> Total Income: <span id="totalAntsIncome">0</span> 
+		</div>
+		<br>
+		</div>
+		<!--Ant End-->
+		
+		<script type="text/javascript" src="main.js"></script>
+	</body>
+</html>
