@@ -176,7 +176,7 @@ div:hover:before {
 
 
 
-/*Animal card*/
+/*Animal*/
 #animal {
 	background-color: blue; 
 	display: flex; 
@@ -217,10 +217,15 @@ div:hover:before {
 	width: 6em;
 }
 
+#animal-button:hover {
+    background-color: #000000;
+}
+/*TODO clicked*/
+
 #container-right {
 	flex-grow: 1; 
-	margin: 0%; 
-	padding: 0%; 
+	margin: 0%;
+	padding: 0%;
 	background-color: red;
 }
 
@@ -241,5 +246,5 @@ div:hover:before {
 
 #card-text-middle {
 	text-align: left;
-	padding: 2%;
+	padding: 3%; /*2 shows red line...*/
 }
