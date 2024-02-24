@@ -174,3 +174,72 @@ div:hover:before {
     border-radius: 3px;
 }
 
+
+
+/*Animal card*/
+#animal {
+	background-color: blue; 
+	display: flex; 
+	width: 80%; 
+	margin-left: auto; 
+	margin-right: auto;
+}
+
+#container-left {
+	background-color: purple; 
+	display: flex; 
+	width: 30%; 
+	margin: 0; 
+	padding: 0;
+}
+
+#animal-image-container {
+	background-color: orange; 
+	display: flex; 
+	width: 100%;
+}
+
+#animal-image {
+	background-color: red; 
+	object-fit: cover; 
+	width: 100%;
+}
+
+#animal-button-container {
+	width: 0%;
+}
+
+#animal-button {
+	background-color: #406328;
+	position: relative; 
+	left: -10em; 
+	top: 90%; 
+	width: 6em;
+}
+
+#container-right {
+	flex-grow: 1; 
+	margin: 0%; 
+	padding: 0%; 
+	background-color: red;
+}
+
+#card-text-left {
+	text-align: left;
+	background-color: #406328; 
+	float: left; 
+	color: white; 
+	padding: 2%;
+}
+
+#card-text-right {
+	text-align: right;
+	background-color: #406328; 
+	color: white; 
+	padding: 2%;
+}
+
+#card-text-middle {
+	text-align: left;
+	padding: 2%;
+}
