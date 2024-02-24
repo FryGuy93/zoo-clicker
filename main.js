@@ -23,7 +23,13 @@ function debugScript(){
 	// Add "DEBUGGING" to top of page
 	if (isDebugMode) {
 		document.body.innerHTML = `
-	<div style="position: fixed; top: 0; left: 0; width: 100%; background: red; font-size: 6px;">DEBUGGING</div>
+	<div style="background: red; position: fixed; top: 0; left: 0; text-align: center; width: 100%; font-size: 6px;">
+		DEBUGGING - 
+		<a href="/">Home</a>
+		<a href="index.html">Index</a>
+		<a href="debug.html">Debug</a>
+		<a href="todo.html">TODO</a>
+	</div>
 		`
 		+ document.body.innerHTML;
 	}
