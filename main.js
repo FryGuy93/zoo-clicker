@@ -1,5 +1,6 @@
 var isDebugMode = false; 
-var isDebugMode = true; // comment this out to disable debug mode and run in production mode
+//var isDebugMode = true; // comment this out to disable debug mode and run in production mode
+var isDebugModeLocalHostOnly = true; //http://localhost:3000/debug.html
 var zoodollars = 0;
 var ips = 0;
 var onehundred = 1000000000;
@@ -12,6 +13,15 @@ window.addEventListener("load", debugScript);
 // debug mode - show warning but display page differently - makes it easier to see and test changes
 function debugScript(){
 	// Load only debug website when in debug mode
+
+	// Enable debug mode when on local
+	if (window.location.href.includes("127.0.0") || 
+		window.location.href.includes("localhost")) {
+		if(isDebugModeLocalHostOnly) {
+			isDebugMode = true; 
+		}
+	}
+
 	if (isDebugMode && window.location.href.includes("index.html")) {
 		window.location.href = "./debug.html";
 	}
