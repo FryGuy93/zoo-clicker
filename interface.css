@@ -1,6 +1,7 @@
 body {
 	text-align: center;
 	width: 1000px;
+	/*80%*/
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -248,3 +249,88 @@ div:hover:before {
 	text-align: left;
 	padding: 3%; /*2 shows red line...*/
 }
+
+
+/* The alert message box */
+/*
+.alert {
+	padding: 20px;
+	background-color: #f44336; 
+	color: white;
+	margin-bottom: 15px;
+	opacity: 1;
+	transition: opacity 0.6s; 
+}
+
+.closebtn {
+	margin-left: 15px;
+	color: white;
+	font-weight: bold;
+	float: right;
+	font-size: 22px;
+	line-height: 20px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.closebtn:hover {
+	color: black;
+}
+
+
+
+.popup {
+	position: fixed;
+	z-index: 99;
+	background-color: green;
+	width: 80%;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+*/
+/* The actual popup */
+/* 
+
+.popup .popuptext {
+	*/
+	/*
+	position: fixed;
+	left: 50%;
+	top: 5px;
+	width: 80%;
+	
+	visibility: hidden;
+	*/
+	/*
+	background-color: #555;
+	color: #fff;
+	border-radius: 20px;
+	padding: 10px;
+	
+}
+*/
+
+/* Toggle this class - hide and show the popup */
+/*
+.popup .anim {
+	visibility: visible;
+	-webkit-animation: fadeinout 4s linear forwards;
+	animation: fadeinout 4s linear forwards;
+}
+*/
+
+
+/* Add animation */
+/* keeps it visible solid 80% of duration */
+/*
+@-webkit-keyframes fadeinout {
+	0%,100% { opacity: 0; }
+	20%,80% { opacity: 1; }
+}
+@keyframes fadeinout {
+	0%,100% { opacity: 0; top: -30%;}
+	20%,80% { opacity: 1; top: 0%;}
+}
+*/

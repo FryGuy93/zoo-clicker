@@ -62,15 +62,38 @@
 		</div>
 	</div>
 	-->
+		<br>
+		<br>
+		<button class="btn btn-primary">Test1</button>
+		
+		<!--Toast - Hidden-->
+		<!--TODO multiple/stacking-->
+		<div class="toast-container position-fixed top-0 start-0 p-3">
+			<div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+				<div class="toast-header">
+				<img src="zoodollarcoin.png" style="height: 20px;" class="rounded me-2" alt="...">
+				<strong class="me-auto">ZooClickers</strong>
+				<small id="toast-time">Now</small>
+				<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+				</div>
+				<div id="toast-body" class="toast-body">
+					Hello, world! This is a toast message.
+				</div>
+			</div>
+		</div>
+	  
 		<div style="display: flex; outline: auto; background: gray;">
 			<div>Debugging panel:</div>
 			<div style="position: fixed; top: 0; left: 0; background: red; font-size: 6px;">DEBUG PAGE</div>
 			<br>
+			<button style="background-color: white; color: black; float: left; margin: 0;" onclick="location.reload()">reload</button>
 			<button style="background-color: black; color: white; float: left; margin: 0;" onclick="loadPreset1()">Preset1</button>
-			<button style="float: left; margin: 0;" onclick="save()">Save</button>
-			<button style="float: left; margin: 0;" onclick="load()">Load</button>
+			<button style="float: left; margin: 0;" onclick="saveGame()">Save</button>
+			<button style="float: left; margin: 0;" onclick="loadGame()">Load</button>
 			<!-- a link moves the page up... changed to button-->
 			<button style="background-color: black; color: white; margin: 0;" onclick="resetSave()">Reset save</button>
+			<button style="float: left; margin: 0;" onclick="openToast('Hello')">Open Toast</button>
+			<button style="background-color: red; margin: 0;" onclick="openToast_Error('Hello')">Open Toast Error</button>
 			<button style="margin: 0; padding: 16;" class="manualButton" title="Click Here to add Funds manually." onclick="addFunds2()"></button>
 			<button style="margin: 0;" id="btnUpg" onclick="upgradeFunds()">Upgrade - Lvl: 1, Cost 10</button>
 			<button style="background-color: black; color: white; margin: 0;" onclick="resetClickUpgrade()">Reset click upgrade</button>
@@ -107,6 +130,8 @@
 	</div>
 	<!--Ant End-->
 	
+	<br>
+	<br>
 	<!--Ant-->
 	<!-- https://getbootstrap.com/docs/5.3/components/card/ -->
 	<!-- <div class="card mb-4" style="max-width: 600px; max-height: 200px; outline: auto;"> -->
@@ -146,6 +171,32 @@
 	</div>
 		<!--Ant End-->
 		
+<br>
+<br>
+<!--Responsive Layout-->
+<div class="container-fluid p-5 bg-primary text-white text-center">
+	<h1>My First Bootstrap Page</h1>
+	<p>Resize this responsive page to see the effect!</p>
+  </div>
+  
+  <div class="container mt-5">
+	<div class="row">
+	  <div class="col-sm-4">
+		<h3>Column 1</h3>
+		<p>Lorem ipsum...</p>
+	  </div>
+	  <div class="col-sm-4">
+		<h3>Column 2</h3>
+		<p>Lorem ipsum...</p>
+	  </div>
+	  <div class="col-sm-4">
+		<h3>Column 3</h3>
+		<p>Lorem ipsum...</p>
+	  </div>
+	</div>
+  </div>
+
+
 
 		<script type="text/javascript" src="main.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
