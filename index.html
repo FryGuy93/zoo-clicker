@@ -52,69 +52,106 @@
 		</div>
 		
 		<h2><b>Zoo Dollars:</b> <span id="zoodollars">0</span></h2>
-		<h3><b>Income/s:</b> <span id="ips">0</span></h3>
+		<h3><b>Income/day:</b> <span id="ips">0</span></h3>
+		<h4><b>Day:</b> <span id="day">1</span></h3>
 	
 		<div id="divider"></div>
 		<br>
 		
+		<br>
+		<div>
+			<div id="unlockInsectsBtn">
+				<button onclick="unlockInsects()">Unlock Insects Z$ <span id="unlockInsectsCost">0</span></button> 
+				<br>
+			</div>
+			<br>
+			<button id="unlockArachnidsBtn" onclick="unlockArachnids()">Unlock Arachnids Z$ <span id="unlockArachnidsCost">0</span></button> 
+		</div>
+		<br>
+
 		<div id="exhTitle">
 			Exhibits
 		</div>
 		<br> 
 		
-		<!--Ant-->
-		<!-- https://getbootstrap.com/docs/5.3/components/card/ -->
-		<!--TODO responsive layout-->
-		<div id="animal">
-			<div id="container-left">
-				<div id="animal-image-container">
-					<img id="animal-image" src="ant.png" alt="ant"/>
-				</div>
-				<div id="animal-button-container">
-					<a id="animal-button" href="javascript:void(0);" onclick="buyAnt();"  class="btn btn-primary">
-						Buy 1 Ant
-					</a>
-				</div>
-			</div>
-			<div id="container-right">
-				<div style="background-color: #819F6C;">
-					<h5 id="card-text-left" class="card-title">
-						Ants
-					</h5>
-					<h5 id="card-text-right" class="card-title">
-						Cost: Z$ <span id="antCost">8</span>
-					</h5>
-					<div id="card-text-middle" class="card-text">
-						<div><span id="ants">0</span>  Ant(s)</div>
-						Visitors attracted: 36 TODO <br> 
-						Income generated per day: Z$ 36 TODO
-						<div>Total Income: <span id="totalAntsIncome">0</span> </div>
-					</div>
-					<p class="card-text">
-						<small class="text-body-secondary">
-							Info: spotted in the dirt
-						</small>
-					</p>
-				</div>
-			</div>
+		<!-- Bootstrap panels for Animals Exhibits types-->
+		<div id="exhTitles">
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<a id="exhInsectsTitle" class="nav-link disabled active" onclick="selectInsects()" href="javascript:void(0);">Insects</a>
+				</li>
+				<li class="nav-item">
+					<a id="exhArachnidsTitle" class="nav-link disabled" aria-disabled="true" onclick="selectArachnids()" href="javascript:void(0);" >Arachnids</a>
+				</li>
+			</ul>
 		</div>
-		<!--Ant End-->
-		
-		<br>
 
-		<!--Butterfly-->
-		<div id="backLow">
-		<div id="aniTitle">
-		<b>BUTTERFLYS</b> (Income: 2)
+		<div id="exhInsects" hidden>
+		<!--
+			<div id="exhInsects" hidden>
+		--> 
+			Insects...
+			<!--Ant-->
+			<!-- https://getbootstrap.com/docs/5.3/components/card/ -->
+			<!--TODO responsive layout-->
+			<div id="animal">
+				<div id="container-left">
+					<div id="animal-image-container">
+						<img id="animal-image" src="ant.png" alt="ant"/>
+					</div>
+					<div id="animal-button-container">
+						<a id="animal-button" href="javascript:void(0);" onclick="buyAnt();"  class="btn btn-primary">
+							Buy 1 Ant
+						</a>
+					</div>
+				</div>
+				<div id="container-right">
+					<div style="background-color: #819F6C;">
+						<h5 id="card-text-left" class="card-title">
+							Ants
+						</h5>
+						<h5 id="card-text-right" class="card-title">
+							Cost: Z$ <span id="antCost">8</span>
+						</h5>
+						<div id="card-text-middle" class="card-text">
+							<div><span id="ants">0</span> Ant(s)</div>
+							Visitors attracted: 10 <br> 
+							Income generated per day: Z$ 1
+							<div>Total Income: <span id="totalAntsIncome">0</span> </div>
+						</div>
+						<p class="card-text">
+							<small class="text-body-secondary">
+								Info: spotted in the dirt
+							</small>
+						</p>
+					</div>
+				</div>
+			</div>
+			<!--Ant End-->
 		</div>
-		 <button title="I want to be a moth again..." onclick="buyButterfly()">Buy 1 Butterfly</button> <br/>
-		<div id="noAnimals"> Butterfly(s): <span id="butterflys">0</span> </div>
-		<div id="costForNext"> Cost: <span id="butterflyCost">16</span> </div>
-		<div id="totalIncome"> Total Income: <span id="totalButterflysIncome">0</span> </div>
-		<br>
+
+
+		<div id="exhArachnids" hidden>
+			Arachnids...
+			<!--Butterfly-->
+			<div id="backLow">
+			<div id="aniTitle">
+			<b>BUTTERFLYS</b> (Income: 2)
+			</div>
+			 <button title="I want to be a moth again..." onclick="buyButterfly()">Buy 1 Butterfly</button> <br/>
+			<div id="noAnimals"> Butterfly(s): <span id="butterflys">0</span> </div>
+			<div id="costForNext"> Cost: <span id="butterflyCost">16</span> </div>
+			<div id="totalIncome"> Total Income: <span id="totalButterflysIncome">0</span> </div>
+			<br>
+			</div>
+			<!--Butterfly End-->
 		</div>
-		<!--Butterfly End-->
 		
+
+		<br>
+		<br>
+		<br>
+		<br>
 		<br>
 		
 		<!--Caterpillar-->

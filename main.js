@@ -3,13 +3,28 @@ var isDebugMode = false;
 var isDebugModeLocalHostOnly = true; //http://localhost:3000/debug.html
 var zoodollars = 0;
 var ips = 0;
+var day = 0;
 var onehundred = 1000000000;
 var btnUpgLvl = 1;
 var btnUpgCost = 10;
 var gameLoopTime = 1000; // 1000 = 1 second
+var unlockInsectsCost = 1;
+var unlockArachnidsCost = 2;
+var isInsectsUnlocked = false;
+var isArachnidsUnlocked = false;
 
+// Starting script
+window.addEventListener("load", startScript);
+function startScript() {
+	document.getElementById("unlockInsectsCost").innerHTML = unlockInsectsCost;
+	document.getElementById("unlockArachnidsCost").innerHTML = unlockArachnidsCost;
+}
 // Game loop - Update stats - 1 second = 1 day
-window.setInterval(function(){
+window.setInterval(mainGameLoop , gameLoopTime);
+
+// Main function
+function mainGameLoop() {
+	addDay(1);
 	addFunds(ants * 1);
 	addFunds(butterflys * 2);
 	addFunds(caterpillars * 3);
@@ -17,14 +32,13 @@ window.setInterval(function(){
 	addFunds(emus * 5);
 	addFunds(falcons * 10);
 	addFunds(giraffes * 25);
-}, gameLoopTime);
-
+}
 
 //#region Debugging
 window.addEventListener("load", debugScript);
 
 // debug mode - show warning but display page differently - makes it easier to see and test changes
-function debugScript(){
+function debugScript() {
 	// Load only debug website when in debug mode
 	// Enable debug mode when on local
 	if (window.location.href.includes("127.0.0") || 
@@ -118,6 +132,79 @@ function addFunds(number){
     document.getElementById("zoodollars").innerHTML = zoodollars;
 }
 
+function addDay(number){
+    day += number;
+    document.getElementById("day").innerHTML = day;
+}
+
+
+// Unlock Zones
+
+function unlockInsects(){
+    if(zoodollars >= unlockInsectsCost){   
+		zoodollars -= unlockInsectsCost;
+		document.getElementById('zoodollars').innerHTML = zoodollars;  //updates the number of zoodollars for the user
+		
+		isInsectsUnlocked = true;
+		// TODO
+		//document.getElementById("unlockInsectsBtn").disabled = true;
+		document.getElementById("unlockInsectsBtn").hidden = true;
+		document.getElementById("exhInsectsTitle").classList.remove("disabled");
+
+		selectInsects();
+
+		//document.getElementById("ant").disabled = false; 
+		openToast("Insects unlocked!"); 
+    }
+	else {
+		openToast("Cannot unlock Insects - not enough funds!"); 
+	}
+}
+
+function unlockArachnids(){
+    if(zoodollars >= unlockArachnidsCost){   
+		zoodollars -= unlockArachnidsCost;
+		document.getElementById('zoodollars').innerHTML = zoodollars;  //updates the number of zoodollars for the user
+		
+		isArachnidsUnlocked = true;
+		// TODO
+		//document.getElementById("unlockInsectsBtn").disabled = true;
+		document.getElementById("unlockArachnidsBtn").hidden = true;
+		document.getElementById("exhArachnidsTitle").classList.remove("disabled");
+
+		selectArachnids();
+
+		//document.getElementById("ant").disabled = false; 
+		openToast("Arachnids unlocked!"); 
+    }
+	else {
+		openToast("Cannot unlock Arachnids - not enough funds!"); 
+	}
+}
+
+
+function selectInsects(){
+    if(isInsectsUnlocked){ 
+		// Show only Insects Panel
+		//document.getElementById('exhInsectsTitle').disabled = false;
+		document.getElementById("exhInsects").hidden = false;
+		document.getElementById("exhInsectsTitle").classList.add("active");
+
+		document.getElementById("exhArachnids").hidden = true;
+		document.getElementById("exhArachnidsTitle").classList.remove("active");
+	}
+}
+
+function selectArachnids(){
+	if(isArachnidsUnlocked){ 
+		//document.getElementById('exhArachnidsTitle').disabled = false;
+		document.getElementById("exhInsects").hidden = true;
+		document.getElementById("exhInsectsTitle").classList.remove("active");
+
+		document.getElementById("exhArachnids").hidden = false;
+		document.getElementById("exhArachnidsTitle").classList.add("active");
+	}
+}
 // NOT WORKING
 function buyAnimal(animalName, multiplier, animalCount, animalEle, animalIncomeEle, animalIncome, animalCostEle){
 	var animalCost = Math.floor(multiplier * Math.pow(1.1, animalCount));     			//works out the cost of this cursor
@@ -316,7 +403,8 @@ function saveGame(){
 		falcons,
 		giraffes,
 		ips,
-		btnUpgLvl
+		btnUpgLvl,
+		day
 	];
 	
 	localStorage['saveGame'] = btoa(JSON.stringify(allItems));
@@ -338,6 +426,7 @@ function loadGame(){
 		giraffes = allItems[7];
 		ips = allItems[8];
 		btnUpgLvl = allItems[9];
+		day = allItems[10];
 	}
 	catch(err) {
 		openToast_Error("No saved game to load");
@@ -354,7 +443,8 @@ function loadGame(){
 		document.getElementById("ips").innerHTML = ips;
 		btnUpgCost = Math.floor(10 * Math.pow(1.1,btnUpgLvl));
 		document.getElementById("btnUpg").innerHTML = "Upgrade - Lvl: " + btnUpgLvl + ", Cost: " + btnUpgCost;
-		
+		addDay(day);
+
 		// Animals
 		document.getElementById("ants").innerHTML = ants;
 		document.getElementById("butterflys").innerHTML = butterflys;
