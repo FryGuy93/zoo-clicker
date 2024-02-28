@@ -1,3 +1,5 @@
+"use strict";
+
 var isDebugMode = false; 
 //var isDebugMode = true; // comment this out to disable debug mode and run in production mode
 var isDebugModeLocalHostOnly = true; //http://localhost:3000/debug.html
@@ -5,13 +7,20 @@ var zoodollars = 0;
 var ips = 0;
 var day = 0;
 var onehundred = 1000000000;
-var btnUpgLvl = 1;
+var btnUpgLvl = 100; //1
 var btnUpgCost = 10;
 var gameLoopTime = 1000; // 1000 = 1 second
 var unlockInsectsCost = 1;
 var unlockArachnidsCost = 2;
 var isInsectsUnlocked = false;
 var isArachnidsUnlocked = false;
+var unlockedAreasCount = 0; // Each area worth same?
+var visitorsPerDay = 0;
+var zooEntryPrice_initial = 10;
+var antsAttraction = 3;
+var butterflysAttraction = 10;
+var zooDollarsPerDay = 0
+var ticketPrice = 0;
 
 // Starting script
 window.addEventListener("load", startScript);
@@ -20,11 +29,16 @@ function startScript() {
 	document.getElementById("unlockArachnidsCost").innerHTML = unlockArachnidsCost;
 }
 // Game loop - Update stats - 1 second = 1 day
+// Delta time? window.requestAnimationFrame?
 window.setInterval(mainGameLoop , gameLoopTime);
 
 // Main function
 function mainGameLoop() {
+	// TODO remove - totalAntsIncome - not used
 	addDay(1);
+	mainCalculations();
+	mainUIUpdate();
+	/*
 	addFunds(ants * 1);
 	addFunds(butterflys * 2);
 	addFunds(caterpillars * 3);
@@ -32,6 +46,38 @@ function mainGameLoop() {
 	addFunds(emus * 5);
 	addFunds(falcons * 10);
 	addFunds(giraffes * 25);
+	*/
+}
+function mainCalculations() {
+	// People = animal * animal attraction (per animal)
+	visitorsPerDay = 0;
+	visitorsPerDay += ants * antsAttraction; 
+	visitorsPerDay += butterflys * butterflysAttraction; 
+	//...
+	
+	// Ticket price = exhibits * 10
+	// 		Insects = 10*1
+	//		Arachnids = 30*2
+	ticketPrice = unlockedAreasCount * zooEntryPrice_initial;
+
+	// Money = tickets * people
+	zooDollarsPerDay = ticketPrice * visitorsPerDay;
+	addFunds(zooDollarsPerDay);
+}
+
+function mainUIUpdate() {
+	// TODO change to per day - rename ips
+	document.getElementById('ips').innerHTML = zooDollarsPerDay;
+	
+	document.getElementById("visitorsAttracted").innerHTML = visitorsPerDay;
+	document.getElementById("zooEntryPrice").innerHTML = ticketPrice;
+	
+	// Animals
+	document.getElementById("antsIncomePerDay").innerHTML = ants * antsAttraction * ticketPrice;
+	document.getElementById("butterflysIncomePerDay").innerHTML = butterflys * butterflysAttraction * ticketPrice;
+	//var antsAttractionPerDay = ants * antsAttraction;
+	document.getElementById("antsAttraction").innerHTML = `${antsAttraction} (${antsAttraction*ants})`; //antsAttraction + " (" + antsAttractionPerDay + ")"
+	document.getElementById("butterflysAttraction").innerHTML = butterflysAttraction;
 }
 
 //#region Debugging
@@ -59,7 +105,7 @@ function debugScript() {
 	// Add "DEBUGGING" to top of page
 	if (isDebugMode) {
 		document.body.innerHTML = `
-	<div style="background: red; position: fixed; top: 0; left: 0; text-align: center; width: 100%; font-size: 6px;">
+	<div style="z-index: 99; background: red; position: fixed; top: 0; left: 0; text-align: center; width: 100%; font-size: 6px;">
 		DEBUGGING - 
 		<a href="/">Home</a>
 		<a href="index.html">Index</a>
@@ -139,13 +185,28 @@ function addDay(number){
 
 
 // Unlock Zones
+function checkUnlocks() {
+	unlockedAreasCount = 0;
+	if(isInsectsUnlocked) unlockInsects();
+	if(isArachnidsUnlocked) unlockArachnids();
+}
 
-function unlockInsects(){
-    if(zoodollars >= unlockInsectsCost){   
+function unlockInsects() {
+	if(isInsectsUnlocked) {
+		unlockedAreasCount++;
+		//zooEntryPrice_initial += 10;
+		document.getElementById("unlockInsectsBtn").hidden = true;
+		document.getElementById("exhInsectsTitle").classList.remove("disabled");
+		return;
+	}
+
+    if(!isInsectsUnlocked && zoodollars >= unlockInsectsCost){   
 		zoodollars -= unlockInsectsCost;
 		document.getElementById('zoodollars').innerHTML = zoodollars;  //updates the number of zoodollars for the user
 		
 		isInsectsUnlocked = true;
+		unlockedAreasCount++;
+		//zooEntryPrice_initial += 10;
 		// TODO
 		//document.getElementById("unlockInsectsBtn").disabled = true;
 		document.getElementById("unlockInsectsBtn").hidden = true;
@@ -162,11 +223,22 @@ function unlockInsects(){
 }
 
 function unlockArachnids(){
-    if(zoodollars >= unlockArachnidsCost){   
+	if(isArachnidsUnlocked) {
+		unlockedAreasCount++;
+		//zooEntryPrice_initial += 20;
+		document.getElementById("unlockArachnidsBtn").hidden = true;
+		document.getElementById("exhArachnidsTitle").classList.remove("disabled");
+		return;
+	}
+
+    if(!isArachnidsUnlocked && zoodollars >= unlockArachnidsCost){   
 		zoodollars -= unlockArachnidsCost;
 		document.getElementById('zoodollars').innerHTML = zoodollars;  //updates the number of zoodollars for the user
 		
 		isArachnidsUnlocked = true;
+		unlockedAreasCount++;
+		//zooEntryPrice_initial += 20;
+
 		// TODO
 		//document.getElementById("unlockInsectsBtn").disabled = true;
 		document.getElementById("unlockArachnidsBtn").hidden = true;
@@ -239,8 +311,8 @@ function buyAnt(){
         document.getElementById('ants').innerHTML = ants;  //updates the number of ants for the user
         document.getElementById('zoodollars').innerHTML = zoodollars;  //updates the number of zoodollars for the user
 		
-		totalAntsIncome = ants * 1;                        						// Multiply the current number of animals owned by the income. Enter income manually.
-		document.getElementById('totalAntsIncome').innerHTML = totalAntsIncome;   // Updates the total income for user.
+		//totalAntsIncome = ants * 1;                        						// Multiply the current number of animals owned by the income. Enter income manually.
+		//document.getElementById('totalAntsIncome').innerHTML = totalAntsIncome;   // Updates the total income for user.
 		
 		ips = ips + 1;
 		document.getElementById('ips').innerHTML = ips;
@@ -276,8 +348,8 @@ function buyButterfly(){
         document.getElementById('butterflys').innerHTML = butterflys;  //updates the number of butterflys for the user
         document.getElementById('zoodollars').innerHTML = zoodollars;  //updates the number of zoodollars for the user
 		
-		totalButterflysIncome = butterflys * 2;                        						// Multiply the current number of animals owned by the income. Enter income manually.
-		document.getElementById('totalButterflysIncome').innerHTML = totalButterflysIncome;   // Updates the total income for user.
+		//totalButterflysIncome = butterflys * 2;                        						// Multiply the current number of animals owned by the income. Enter income manually.
+		//document.getElementById('totalButterflysIncome').innerHTML = totalButterflysIncome;   // Updates the total income for user.
 		
 		ips = ips + 2;
 		document.getElementById('ips').innerHTML = ips;
@@ -404,7 +476,9 @@ function saveGame(){
 		giraffes,
 		ips,
 		btnUpgLvl,
-		day
+		day,
+		isInsectsUnlocked,
+		isArachnidsUnlocked
 	];
 	
 	localStorage['saveGame'] = btoa(JSON.stringify(allItems));
@@ -427,6 +501,8 @@ function loadGame(){
 		ips = allItems[8];
 		btnUpgLvl = allItems[9];
 		day = allItems[10];
+		isInsectsUnlocked = allItems[11];
+		isArachnidsUnlocked = allItems[12];		
 	}
 	catch(err) {
 		openToast_Error("No saved game to load");
@@ -444,6 +520,7 @@ function loadGame(){
 		btnUpgCost = Math.floor(10 * Math.pow(1.1,btnUpgLvl));
 		document.getElementById("btnUpg").innerHTML = "Upgrade - Lvl: " + btnUpgLvl + ", Cost: " + btnUpgCost;
 		addDay(day);
+		checkUnlocks();
 
 		// Animals
 		document.getElementById("ants").innerHTML = ants;

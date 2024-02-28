@@ -24,7 +24,53 @@
 			</div>
 		</div>
 	  
+		<!--Top bar with zoo dollars and such-->
+		<div id="topbar" style="background: #8fa843; position: fixed; top: 0; left: 0; text-align: left; width: 100%;">
+			<ul class="nav">
+				<li>
+					<div class="manualButton2" onclick="addFunds2()"></div>
+				</li>
+				<li>
+					<h5><b>Zoo Dollars:</b> 
+						<br> 
+						<span id="zoodollars">0</span></h5>
+					</li>
+					<li>
+					<h5>
+						<b>&nbsp; Income/day:</b> 
+						<br> &nbsp; 
+						<span id="ips">0</span>
+					</h5>
+				</li>
+				<li>
+					<h5>
+						<b>&nbsp; Day:</b> 
+						<br> &nbsp; 
+						<span id="day">1</span>
+					</h5>
+				</li>
+				<li>
+					<h5>
+						<b>&nbsp; Visitors Attracted:</b> 
+						<br> &nbsp; 
+						<span id="visitorsAttracted">0</span>
+					</h5>
+				</li>
+				<li>
+					<h5>
+						<b>&nbsp; Zoo Entry Price:</b> 
+						<br> &nbsp; 
+						<span id="zooEntryPrice">0</span>
+					</h5>
+				</li>
+			</ul>
+		</div>
 
+
+
+		<!--Start of page - banner-->
+		<br>
+		<br>
 		<img src="zooclickersbanner.jpg" alt="Zoo Clickers Banner" >
 		<br>
 		<br>
@@ -51,9 +97,6 @@
 			<button id="btnUpg" onclick="upgradeFunds()">Upgrade - Lvl: 1, Cost 10</button>
 		</div>
 		
-		<h2><b>Zoo Dollars:</b> <span id="zoodollars">0</span></h2>
-		<h3><b>Income/day:</b> <span id="ips">0</span></h3>
-		<h4><b>Day:</b> <span id="day">1</span></h3>
 	
 		<div id="divider"></div>
 		<br>
@@ -73,7 +116,7 @@
 			Exhibits
 		</div>
 		<br> 
-		
+
 		<!-- Bootstrap panels for Animals Exhibits types-->
 		<div id="exhTitles">
 			<ul class="nav nav-tabs">
@@ -115,9 +158,8 @@
 						</h5>
 						<div id="card-text-middle" class="card-text">
 							<div><span id="ants">0</span> Ant(s)</div>
-							Visitors attracted: 10 <br> 
-							Income generated per day: Z$ 1
-							<div>Total Income: <span id="totalAntsIncome">0</span> </div>
+							Visitors attracted: <span id="antsAttraction">0</span>  <br> 
+							Income generated per day: Z$ <span id="antsIncomePerDay">0</span>
 						</div>
 						<p class="card-text">
 							<small class="text-body-secondary">
@@ -143,6 +185,8 @@
 			<div id="costForNext"> Cost: <span id="butterflyCost">16</span> </div>
 			<div id="totalIncome"> Total Income: <span id="totalButterflysIncome">0</span> </div>
 			<br>
+			Visitors attracted: <span id="butterflysAttraction">0</span>  <br> 
+			Income generated per day: Z$ <span id="butterflysIncomePerDay">0</span>
 			</div>
 			<!--Butterfly End-->
 		</div>
