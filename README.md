@@ -24,9 +24,6 @@ Visual Studio Code with extensions:
 - ESLint
 - Code Runner
 
-Hosting
----
-Netlify - https://main--effervescent-dasik-c0b980.netlify.app/
 
 Goals
 ---
