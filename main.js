@@ -24,7 +24,8 @@ var isArachnidsUnlocked = false;
 var unlockedAreasCount = 0; // Each area worth same?
 var visitorsPerDay = 0;
 var zooEntryPrice_initial = 10;
-var antsAttraction = 3;
+var antsAttraction = 1;
+var aphidsAttraction = 3;
 var butterflysAttraction = 10;
 var zooDollarsPerDay = 0
 var ticketPrice = 0;
@@ -59,6 +60,7 @@ function mainCalculations() {
 	// People = animal * animal attraction (per animal)
 	visitorsPerDay = 0;
 	visitorsPerDay += ants * antsAttraction; 
+	visitorsPerDay += aphids * aphidsAttraction; 
 	visitorsPerDay += butterflys * butterflysAttraction; 
 	//...
 	
@@ -81,9 +83,11 @@ function mainUIUpdate() {
 	
 	// Animals
 	document.getElementById("antsIncomePerDay").innerHTML = ants * antsAttraction * ticketPrice;
+	document.getElementById("aphidsIncomePerDay").innerHTML = aphids * aphidsAttraction * ticketPrice;
 	document.getElementById("butterflysIncomePerDay").innerHTML = butterflys * butterflysAttraction * ticketPrice;
 	//var antsAttractionPerDay = ants * antsAttraction;
 	document.getElementById("antsAttraction").innerHTML = `${antsAttraction} (${antsAttraction*ants})`; //antsAttraction + " (" + antsAttractionPerDay + ")"
+	document.getElementById("aphidsAttraction").innerHTML = `${aphidsAttraction} (${aphidsAttraction*aphids})`; //aphidsAttraction + " (" + aphidsAttractionPerDay + ")"
 	document.getElementById("butterflysAttraction").innerHTML = butterflysAttraction;
 }
 
@@ -179,6 +183,18 @@ function resetAnts(){
 	document.getElementById('antCost').innerHTML = 8;  
 }
 // Other animals...
+function resetAphids(){
+	console.log("Reset aphids");
+	ips -= totalAphidsIncome;
+	document.getElementById('ips').innerHTML = ips;
+
+	aphids = 0;
+	totalAphidsIncome = 0;
+	document.getElementById('aphids').innerHTML = 0;
+	//document.getElementById('zoodollars').innerHTML = zoodollars;  
+	document.getElementById('totalAphidsIncome').innerHTML = 0;
+	document.getElementById('aphidCost').innerHTML = 8;  
+}
 
 //#endregion
 //#endregion
@@ -347,6 +363,37 @@ function buyAnt2(){
 	openToast("WORKING! " + ants + ", " + totalAntsIncome + ", " + ant.count + ", " + ant.totalAntsIncome.innerHTML); 
 }
 
+//Aphids
+var aphids = 0;
+function buyAphid(){ 
+	// TODO simplify
+    var aphidCost = Math.floor(15 * Math.pow(1.1,aphids));     			//works out the cost of this cursor
+    if(zoodollars >= aphidCost){                            	       //checks that the player can afford the cursor
+        aphids = aphids + 1;                                  			 //increases number of aphids
+    	zoodollars = zoodollars - aphidCost;                          //removes the zoodollars spent
+        document.getElementById('aphids').innerHTML = aphids;  //updates the number of aphids for the user
+        document.getElementById('zoodollars').innerHTML = zoodollars;  //updates the number of zoodollars for the user
+				
+		ips = ips + 1;
+		document.getElementById('ips').innerHTML = ips;
+    }
+	else {
+		openToast("Cannot buy " + "Aphid" + " - not enough funds!"); 
+	}
+    var nextCost = Math.floor(15 * Math.pow(1.1,aphids));       //works out the cost of the next cursor
+    document.getElementById('aphidCost').innerHTML = nextCost;  //updates the cursor cost for the user
+}
+
+var aphid = {a:1};
+function buyAphid2(){ 
+	aphid.multiplier = 15;
+	aphid.count = aphids;
+	
+	aphid.totalAphidsIncome = totalAphidsIncome;
+	buyAnimal("Aphid", 15, aphid.count, "aphids", "totalAphidsIncome", aphid.totalAphidsIncome, "aphidCost");
+	openToast("WORKING! " + aphids + ", " + totalAphidsIncome + ", " + aphid.count + ", " + aphid.totalAphidsIncome.innerHTML); 
+}
+
 //Butterflys
 var butterflys = 0;
 function buyButterfly(){
@@ -478,12 +525,8 @@ function saveGame(){
 	var allItems = [
 		zoodollars,
 		ants,
+		aphids,
 		butterflys,
-		caterpillars,
-		dolphins,
-		emus,
-		falcons,
-		giraffes,
 		ips,
 		btnUpgLvl,
 		day,
@@ -502,17 +545,13 @@ function loadGame(){
 		var allItems = JSON.parse(atob(localStorage['saveGame']));
 		zoodollars = allItems[0];
 		ants = allItems[1];
-		butterflys = allItems[2];
-		caterpillars = allItems[3];
-		dolphins = allItems[4];
-		emus = allItems[5];
-		falcons = allItems[6];
-		giraffes = allItems[7];
-		ips = allItems[8];
-		btnUpgLvl = allItems[9];
-		day = allItems[10];
-		isInsectsUnlocked = allItems[11];
-		isArachnidsUnlocked = allItems[12];		
+		aphids = allItems[2];
+		butterflys = allItems[3];
+		ips = allItems[4];
+		btnUpgLvl = allItems[5];
+		day = allItems[6];
+		isInsectsUnlocked = allItems[7];
+		isArachnidsUnlocked = allItems[8];		
 	}
 	catch(err) {
 		openToast_Error("No saved game to load");
@@ -534,12 +573,9 @@ function loadGame(){
 
 		// Animals
 		document.getElementById("ants").innerHTML = ants;
+		document.getElementById("aphids").innerHTML = aphids;
 		document.getElementById("butterflys").innerHTML = butterflys;
-		document.getElementById("caterpillars").innerHTML = caterpillars;
-		document.getElementById("dolphins").innerHTML = dolphins;
-		document.getElementById("emus").innerHTML = emus;
-		document.getElementById("falcons").innerHTML = falcons;
-		document.getElementById("giraffes").innerHTML = giraffes;
+
 		
 		// Calc ants cost
 		var nextAntsCost = Math.floor(8 * Math.pow(1.1,ants));
@@ -547,6 +583,13 @@ function loadGame(){
 		// Set ants total income
 		var totalAntsIncome = ants * 1;
 		document.getElementById('totalAntsIncome').innerHTML = totalAntsIncome;
+
+		// Calc aphids cost
+		var nextAphidsCost = Math.floor(15 * Math.pow(1.1,aphids));
+		document.getElementById('aphidCost').innerHTML = nextAphidsCost;
+		// Set aphids total income
+		var totalAphidsIncome = aphids * 1;
+		document.getElementById('totalAphidsIncome').innerHTML = totalAphidsIncome;		
 		
 		// Calc butterfly cost
 		var nextButterflysCost = Math.floor(16 * Math.pow(1.1,butterflys));
@@ -554,42 +597,7 @@ function loadGame(){
 		// Set butterflys total income
 		var totalButterflysIncome = butterflys * 2;
 		document.getElementById('totalButterflysIncome').innerHTML = totalButterflysIncome;
-		
-		// Calc caterpillar cost
-		var nextCaterpillarsCost = Math.floor(32 * Math.pow(1.1,caterpillars));
-		document.getElementById('caterpillarCost').innerHTML = nextCaterpillarsCost;
-		// Set caterpillars total income
-		var totalCaterpillarsIncome = caterpillars * 3;
-		document.getElementById('totalCaterpillarsIncome').innerHTML = totalCaterpillarsIncome;
-		
-		// Calc dolphin cost
-		var nextDolphinsCost = Math.floor(64 * Math.pow(1.1,dolphins));
-		document.getElementById('dolphinCost').innerHTML = nextDolphinsCost;
-		// Set dolphins total income
-		var totalDolphinsIncome = dolphins * 4;
-		document.getElementById('totaDolphinsIncome').innerHTML = totalDolphinsIncome;
-		
-		// Calc emu cost
-		var nextEmusCost = Math.floor(128 * Math.pow(1.1,emus));
-		document.getElementById('emusCost').innerHTML = nextEmusCost;
-		// Set emu total income
-		var totalEmusIncome = emus * 5;
-		document.getElementById('totaEmusIncome').innerHTML = totalEmusIncome;
-		
-		// Calc falcons cost
-		var nextFalconsCost = Math.floor(256 * Math.pow(1.1,emus));
-		document.getElementById('falconsCost').innerHTML = nextFalconsCost;
-		// Set falcons total income
-		var totalFalconsIncome = falcons * 10;
-		document.getElementById('totaFalconsIncome').innerHTML = totalFalconsIncome;
-		
-		// Calc giraffes cost
-		var nextGiraffesCost = Math.floor(512 * Math.pow(1.1,emus));
-		document.getElementById('giraffesCost').innerHTML = nextGiraffesCost;
-		// Set giraffes total income
-		var totalGiraffesIncome = giraffes * 25;
-		document.getElementById('totaGiraffesIncome').innerHTML = totalGiraffesIncome;
-		
+			
 		//var ips = totalAntsIncome + totalButterflysIncome + totalCaterpillarsIncome + totalDolphinsIncome + totaEmusIncome + totalFalconsIncome + totaGiraffesIncome;
 		//document.getElementById('ips').innerHTML = ips;
 	}
