@@ -3,9 +3,6 @@
 
 
 Welcome to Zoo Clicker
-(into here)
-
-Check it out! https://main--effervescent-dasik-c0b980.netlify.app/
 
 
 Badges
