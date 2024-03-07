@@ -223,7 +223,7 @@ div:hover:before {
 #container-left {
 	background-color: purple; 
 	display: flex; 
-	width: 30%; 
+	width: 20%; 
 	margin: 0; 
 	padding: 0;
 }
@@ -247,7 +247,7 @@ div:hover:before {
 #animal-button {
 	background-color: #406328;
 	position: relative; 
-	left: -10em; 
+	left: -9.1em; 
 	top: 90%; 
 	width: 6em;
 }
