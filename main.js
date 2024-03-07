@@ -25,8 +25,8 @@ var unlockedAreasCount = 0; // Each area worth same?
 var visitorsPerDay = 0;
 var zooEntryPrice_initial = 10;
 var antsAttraction = 1;
-var aphidsAttraction = 3;
-var fleasAttraction = 10;
+var aphidsAttraction = 2;
+var fleasAttraction = 3;
 var butterflysAttraction = 10;
 var zooDollarsPerDay = 0
 var ticketPrice = 0;
@@ -184,7 +184,7 @@ function resetAnts(){
 	document.getElementById('ants').innerHTML = 0;
 	//document.getElementById('zoodollars').innerHTML = zoodollars;  
 	document.getElementById('totalAntsIncome').innerHTML = 0;
-	document.getElementById('antCost').innerHTML = 8;  
+	document.getElementById('antCost').innerHTML = 10;  
 }
 // Other animals...
 function resetAphids(){
@@ -197,9 +197,8 @@ function resetAphids(){
 	document.getElementById('aphids').innerHTML = 0;
 	//document.getElementById('zoodollars').innerHTML = zoodollars;  
 	document.getElementById('totalAphidsIncome').innerHTML = 0;
-	document.getElementById('aphiCost').innerHTML = 15;  
+	document.getElementById('aphiCost').innerHTML = 25;  
 }
-
 
 function resetFleas(){
 	console.log("Reset fleas");
@@ -211,7 +210,7 @@ function resetFleas(){
 	document.getElementById('fleas').innerHTML = 0;
 	//document.getElementById('zoodollars').innerHTML = zoodollars;  
 	document.getElementById('totalFleasIncome').innerHTML = 0;
-	document.getElementById('fleaCost').innerHTML = 30;  
+	document.getElementById('fleaCost').innerHTML = 50;  
 }
 
 //#endregion
@@ -339,7 +338,7 @@ function buyAnimal(animalName, multiplier, animalCount, animalEle, animalIncomeE
 	else {
 		openToast("Cannot buy " + animalName + " - not enough funds!"); 
 	}
-    var nextCost = Math.floor(8 * Math.pow(1.1,ants));       //works out the cost of the next cursor
+    var nextCost = Math.floor(10 * Math.pow(1.1,ants));       //works out the cost of the next cursor
     document.getElementById(animalCostEle).innerHTML = nextCost;  //updates the cursor cost for the user
 	
 }
@@ -348,7 +347,7 @@ function buyAnimal(animalName, multiplier, animalCount, animalEle, animalIncomeE
 var ants = 0;
 function buyAnt(){ 
 	// TODO simplify
-    var antCost = Math.floor(8 * Math.pow(1.1,ants));     			//works out the cost of this cursor
+    var antCost = Math.floor(10 * Math.pow(1.1,ants));     			//works out the cost of this cursor
     if(zoodollars >= antCost){                            	       //checks that the player can afford the cursor
         ants = ants + 1;                                  			 //increases number of ants
     	zoodollars = zoodollars - antCost;                          //removes the zoodollars spent
@@ -364,17 +363,17 @@ function buyAnt(){
 	else {
 		openToast("Cannot buy " + "Ant" + " - not enough funds!"); 
 	}
-    var nextCost = Math.floor(8 * Math.pow(1.1,ants));       //works out the cost of the next cursor
+    var nextCost = Math.floor(10 * Math.pow(1.1,ants));       //works out the cost of the next cursor
     document.getElementById('antCost').innerHTML = nextCost;  //updates the cursor cost for the user
 }
 
 var ant = {a:1};
 function buyAnt2(){ 
-	ant.multiplier = 8;
+	ant.multiplier = 10;
 	ant.count = ants;
 	
 	ant.totalAntsIncome = totalAntsIncome;
-	buyAnimal("Ant", 8, ant.count, "ants", "totalAntsIncome", ant.totalAntsIncome, "antCost");
+	buyAnimal("Ant", 10, ant.count, "ants", "totalAntsIncome", ant.totalAntsIncome, "antCost");
 	// Pass reference back
 	//ants = ant.count;
 	//totalAntsIncome = ant.totalAntsIncome;
@@ -385,7 +384,7 @@ function buyAnt2(){
 var aphids = 0;
 function buyAphid(){ 
 	// TODO simplify
-    var aphidCost = Math.floor(15 * Math.pow(1.1,aphids));     			//works out the cost of this cursor
+    var aphidCost = Math.floor(25 * Math.pow(1.1,aphids));     			//works out the cost of this cursor
     if(zoodollars >= aphidCost){                            	       //checks that the player can afford the cursor
         aphids = aphids + 1;                                  			 //increases number of aphids
     	zoodollars = zoodollars - aphidCost;                          //removes the zoodollars spent
@@ -398,17 +397,17 @@ function buyAphid(){
 	else {
 		openToast("Cannot buy " + "Aphid" + " - not enough funds!"); 
 	}
-    var nextCost = Math.floor(15 * Math.pow(1.1,aphids));       //works out the cost of the next cursor
+    var nextCost = Math.floor(25 * Math.pow(1.1,aphids));       //works out the cost of the next cursor
     document.getElementById('aphidCost').innerHTML = nextCost;  //updates the cursor cost for the user
 }
 
 var aphid = {a:1};
 function buyAphid2(){ 
-	aphid.multiplier = 15;
+	aphid.multiplier = 25;
 	aphid.count = aphids;
 	
 	aphid.totalAphidsIncome = totalAphidsIncome;
-	buyAnimal("Aphid", 15, aphid.count, "aphids", "totalAphidsIncome", aphid.totalAphidsIncome, "aphidCost");
+	buyAnimal("Aphid", 25, aphid.count, "aphids", "totalAphidsIncome", aphid.totalAphidsIncome, "aphidCost");
 	openToast("WORKING! " + aphids + ", " + totalAphidsIncome + ", " + aphid.count + ", " + aphid.totalAphidsIncome.innerHTML); 
 }
 
@@ -416,7 +415,7 @@ function buyAphid2(){
 var fleas = 0;
 function buyFlea(){ 
 	// TODO simplify
-    var fleaCost = Math.floor(30 * Math.pow(1.1,fleas));     			//works out the cost of this cursor
+    var fleaCost = Math.floor(50 * Math.pow(1.1,fleas));     			//works out the cost of this cursor
     if(zoodollars >= fleaCost){                            	       //checks that the player can afford the cursor
         fleas = fleas + 1;                                  			 //increases number of fleas
     	zoodollars = zoodollars - fleaCost;                          //removes the zoodollars spent
@@ -429,17 +428,17 @@ function buyFlea(){
 	else {
 		openToast("Cannot buy " + "Flea" + " - not enough funds!"); 
 	}
-    var nextCost = Math.floor(30 * Math.pow(1.1,fleas));       //works out the cost of the next cursor
+    var nextCost = Math.floor(50 * Math.pow(1.1,fleas));       //works out the cost of the next cursor
     document.getElementById('fleaCost').innerHTML = nextCost;  //updates the cursor cost for the user
 }
 
 var flea = {a:1};
 function buyFlea2(){ 
-	flea.multiplier = 15;
+	flea.multiplier = 50;
 	flea.count = fleas;
 	
 	flea.totalFleasIncome = totalFleasIncome;
-	buyAnimal("Flea", 30, flea.count, "fleas", "totalFleasIncome", flea.totalFleasIncome, "fleaCost");
+	buyAnimal("Flea", 50, flea.count, "fleas", "totalFleasIncome", flea.totalFleasIncome, "fleaCost");
 	openToast("WORKING! " + fleas + ", " + totalFleasIncome + ", " + flea.count + ", " + flea.totalFleasIncome.innerHTML); 
 }
 
