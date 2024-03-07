@@ -26,6 +26,7 @@ var visitorsPerDay = 0;
 var zooEntryPrice_initial = 10;
 var antsAttraction = 1;
 var aphidsAttraction = 3;
+var fleasAttraction = 10;
 var butterflysAttraction = 10;
 var zooDollarsPerDay = 0
 var ticketPrice = 0;
@@ -61,6 +62,7 @@ function mainCalculations() {
 	visitorsPerDay = 0;
 	visitorsPerDay += ants * antsAttraction; 
 	visitorsPerDay += aphids * aphidsAttraction; 
+	visitorsPerDay += fleas * fleasAttraction; 
 	visitorsPerDay += butterflys * butterflysAttraction; 
 	//...
 	
@@ -84,10 +86,12 @@ function mainUIUpdate() {
 	// Animals
 	document.getElementById("antsIncomePerDay").innerHTML = ants * antsAttraction * ticketPrice;
 	document.getElementById("aphidsIncomePerDay").innerHTML = aphids * aphidsAttraction * ticketPrice;
+	document.getElementById("fleasIncomePerDay").innerHTML = fleas * fleassAttraction * ticketPrice;
 	document.getElementById("butterflysIncomePerDay").innerHTML = butterflys * butterflysAttraction * ticketPrice;
 	//var antsAttractionPerDay = ants * antsAttraction;
 	document.getElementById("antsAttraction").innerHTML = `${antsAttraction} (${antsAttraction*ants})`; //antsAttraction + " (" + antsAttractionPerDay + ")"
-	document.getElementById("aphidsAttraction").innerHTML = `${aphidsAttraction} (${aphidsAttraction*aphids})`; //aphidsAttraction + " (" + aphidsAttractionPerDay + ")"
+	document.getElementById("aphidsAttraction").innerHTML = `${aphidsAttraction} (${aphidsAttraction*aphids})`;
+	document.getElementById("fleasAttraction").innerHTML = `${fleasAttraction} (${fleasAttraction*fleas})`;
 	document.getElementById("butterflysAttraction").innerHTML = butterflysAttraction;
 }
 
@@ -193,7 +197,21 @@ function resetAphids(){
 	document.getElementById('aphids').innerHTML = 0;
 	//document.getElementById('zoodollars').innerHTML = zoodollars;  
 	document.getElementById('totalAphidsIncome').innerHTML = 0;
-	document.getElementById('aphidCost').innerHTML = 8;  
+	document.getElementById('aphiCost').innerHTML = 15;  
+}
+
+
+function resetFleas(){
+	console.log("Reset fleas");
+	ips -= totalFleasIncome;
+	document.getElementById('ips').innerHTML = ips;
+
+	fleas = 0;
+	totalFleasIncome = 0;
+	document.getElementById('fleas').innerHTML = 0;
+	//document.getElementById('zoodollars').innerHTML = zoodollars;  
+	document.getElementById('totalFleasIncome').innerHTML = 0;
+	document.getElementById('fleaCost').innerHTML = 30;  
 }
 
 //#endregion
@@ -394,6 +412,37 @@ function buyAphid2(){
 	openToast("WORKING! " + aphids + ", " + totalAphidsIncome + ", " + aphid.count + ", " + aphid.totalAphidsIncome.innerHTML); 
 }
 
+//Fleas
+var fleas = 0;
+function buyFlea(){ 
+	// TODO simplify
+    var fleaCost = Math.floor(30 * Math.pow(1.1,fleas));     			//works out the cost of this cursor
+    if(zoodollars >= fleaCost){                            	       //checks that the player can afford the cursor
+        fleas = fleas + 1;                                  			 //increases number of fleas
+    	zoodollars = zoodollars - fleaCost;                          //removes the zoodollars spent
+        document.getElementById('fleas').innerHTML = fleas;  //updates the number of fleas for the user
+        document.getElementById('zoodollars').innerHTML = zoodollars;  //updates the number of zoodollars for the user
+				
+		ips = ips + 1;
+		document.getElementById('ips').innerHTML = ips;
+    }
+	else {
+		openToast("Cannot buy " + "Flea" + " - not enough funds!"); 
+	}
+    var nextCost = Math.floor(30 * Math.pow(1.1,fleas));       //works out the cost of the next cursor
+    document.getElementById('fleaCost').innerHTML = nextCost;  //updates the cursor cost for the user
+}
+
+var flea = {a:1};
+function buyFlea2(){ 
+	flea.multiplier = 15;
+	flea.count = fleas;
+	
+	flea.totalFleasIncome = totalFleasIncome;
+	buyAnimal("Flea", 30, flea.count, "fleas", "totalFleasIncome", flea.totalFleasIncome, "fleaCost");
+	openToast("WORKING! " + fleas + ", " + totalFleasIncome + ", " + flea.count + ", " + flea.totalFleasIncome.innerHTML); 
+}
+
 //Butterflys
 var butterflys = 0;
 function buyButterfly(){
@@ -526,6 +575,7 @@ function saveGame(){
 		zoodollars,
 		ants,
 		aphids,
+		fleas,
 		butterflys,
 		ips,
 		btnUpgLvl,
@@ -546,12 +596,13 @@ function loadGame(){
 		zoodollars = allItems[0];
 		ants = allItems[1];
 		aphids = allItems[2];
-		butterflys = allItems[3];
-		ips = allItems[4];
-		btnUpgLvl = allItems[5];
-		day = allItems[6];
-		isInsectsUnlocked = allItems[7];
-		isArachnidsUnlocked = allItems[8];		
+		fleas = allItems[3];
+		butterflys = allItems[4];
+		ips = allItems[5];
+		btnUpgLvl = allItems[6];
+		day = allItems[7];
+		isInsectsUnlocked = allItems[8];
+		isArachnidsUnlocked = allItems[9];		
 	}
 	catch(err) {
 		openToast_Error("No saved game to load");
@@ -574,6 +625,7 @@ function loadGame(){
 		// Animals
 		document.getElementById("ants").innerHTML = ants;
 		document.getElementById("aphids").innerHTML = aphids;
+		document.getElementById("fleas").innerHTML = fleas;
 		document.getElementById("butterflys").innerHTML = butterflys;
 
 		
@@ -591,6 +643,13 @@ function loadGame(){
 		var totalAphidsIncome = aphids * 1;
 		document.getElementById('totalAphidsIncome').innerHTML = totalAphidsIncome;		
 		
+		// Calc fleas cost
+		var nextFleasCost = Math.floor(15 * Math.pow(1.1,fleas));
+		document.getElementById('fleaCost').innerHTML = nextFleasCost;
+		// Set fleas total income
+		var totalFleaIncome = fleas * 1;
+		document.getElementById('totalFleasIncome').innerHTML = totalFleasIncome;		
+
 		// Calc butterfly cost
 		var nextButterflysCost = Math.floor(16 * Math.pow(1.1,butterflys));
 		document.getElementById('butterflyCost').innerHTML = nextButterflysCost;
