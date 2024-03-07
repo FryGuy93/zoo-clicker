@@ -29,7 +29,13 @@
 		<div id="topbar" style="background: #8fa843; position: fixed; top: 0; left: 0; text-align: left; width: 100%;">
 			<ul class="nav">
 				<li>
-					<div class="manualButton2" onclick="addFunds2()"></div>
+					<div class="manualButton2" title="Click Here to add Funds manually." onclick="addFunds2()"></div>
+				</li>
+				<li>
+					<!--id="btnUpg"-->
+					<a href="javascript:void(0);" id="btnUpg" class="saveload" title="Your income per click is equal to the number shown next to Lvl:" onclick="upgradeFunds()">
+						Lvl: 1, Z$: 10
+					</a>
 				</li>
 				<li>
 					<h5><b>Zoo Dollars:</b> 
@@ -82,10 +88,6 @@
 		<br>
 		<img src="zooclickersbanner.jpg" alt="Zoo Clickers Banner" >
 		<br>
-		<br>
-		<br>
-		
-		<br>
 		<div id="divider2"></div>
 		<br>
 		<div id="introText">
@@ -94,12 +96,6 @@
 		<br>
 		<br>
 		<br>
-		<a href="javascript:void(0);" class="manualButton" title="Click Here to add Funds manually." onclick="addFunds2()"></a>
-		<div data-tooltip="Your income per click is equal to the number shown next to Lvl:">
-			<br>
-			<br>
-			<button id="btnUpg" onclick="upgradeFunds()">Upgrade - Lvl: 1, Cost 10</button>
-		</div>
 		
 	
 		<div id="divider"></div>
