@@ -86,7 +86,7 @@ function mainUIUpdate() {
 	// Animals
 	document.getElementById("antsIncomePerDay").innerHTML = ants * antsAttraction * ticketPrice;
 	document.getElementById("aphidsIncomePerDay").innerHTML = aphids * aphidsAttraction * ticketPrice;
-	document.getElementById("fleasIncomePerDay").innerHTML = fleas * fleassAttraction * ticketPrice;
+	document.getElementById("fleasIncomePerDay").innerHTML = fleas * fleasAttraction * ticketPrice;
 	document.getElementById("butterflysIncomePerDay").innerHTML = butterflys * butterflysAttraction * ticketPrice;
 	//var antsAttractionPerDay = ants * antsAttraction;
 	document.getElementById("antsAttraction").innerHTML = `${antsAttraction} (${antsAttraction*ants})`; //antsAttraction + " (" + antsAttractionPerDay + ")"
