@@ -17,8 +17,8 @@ var onehundred = 1000000000;
 var btnUpgLvl = 1;
 var btnUpgCost = 10;
 var gameLoopTime = 1000; // 1000 = 1 second
-var unlockInsectsCost = 1;
-var unlockArachnidsCost = 2;
+var unlockInsectsCost = 25;
+var unlockArachnidsCost = 500;
 var isInsectsUnlocked = false;
 var isArachnidsUnlocked = false;
 var unlockedAreasCount = 0; // Each area worth same?
