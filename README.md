@@ -1,5 +1,5 @@
-![Banner](https://github.com/FryGuy93/zoo-clicker/blob/main/zooclickersbanner.jpg)
-![Coin](https://github.com/FryGuy93/zoo-clicker/blob/main/zoodollarcoin_clicked.png)
+![Banner](https://github.com/FryGuy93/zoo-clicker/blob/main/images/zooclickersbanner.jpg)
+![Coin](https://github.com/FryGuy93/zoo-clicker/blob/main/images/zoodollarcoin_clicked.png)
 
 
 Welcome to Zoo Clicker
@@ -33,7 +33,7 @@ Goals
 Versions
 ---
 2015
-![version2015](https://github.com/FryGuy93/zoo-clicker/blob/main/version2015.png)
+![version2015](https://github.com/FryGuy93/zoo-clicker/blob/main/images/version2015.png)
 
 
 Created by
