@@ -4,6 +4,8 @@
 	--darkmodetext: #ffffff;
 	--mainColor1: #8fa843;
 	--mainColor2: #B3D6A5;
+	--url1: url("/images/zoodollarcoin_clicked.png") no-repeat;
+	--url2: url("/images/zoodollarcoin_hover.png") no-repeat;
 }
 
 body {
@@ -154,16 +156,16 @@ button:active{
  }
 
 .manualButton {
-	background:url(zoodollarcoin_clicked.png) no-repeat;
+	background: var(--url1);
 	margin-left: 20px;
 	padding:68px;
 }
 
 .manualButton:hover {
 	/*
-	background:url(zoodollarcoinhover.png) no-repeat;
+	background:url(/images/zoodollarcoinhover.png) no-repeat;
 	*/
-	background:url(zoodollarcoin_hover.png) no-repeat;
+	background: var(--url2);
 	margin-left: 20px;
 	padding:68px;
 }
@@ -176,14 +178,14 @@ button:active{
 	margin-top: 10px;
     margin-left: 10px;
 	*/
-	background:url(zoodollarcoin.png) no-repeat;
+	background:url(/images/zoodollarcoin.png) no-repeat;
 	margin-left: 2px;
  }
 
  .manualButton2 {
 	width: 50px;
 	height: 50px;
-	background-image: url(zoodollarcoin_clicked.png);
+	background-image: url(/images/zoodollarcoin_clicked.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
