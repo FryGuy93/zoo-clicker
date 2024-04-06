@@ -46,7 +46,7 @@ function loadGame(){
 		document.getElementById("zoodollars").innerHTML = zoodollars;
 		document.getElementById("ips").innerHTML = ips;
 		btnUpgCost = Math.floor(10 * Math.pow(1.1,btnUpgLvl));
-		document.getElementById("btnUpg").innerHTML = "Upgrade - Lvl: " + btnUpgLvl + ", Cost: " + btnUpgCost;
+		document.getElementById("btnUpg").innerHTML = "Lvl: " + btnUpgLvl + ", Cost: " + btnUpgCost;
 		checkUnlocks();
 		
 		// Animals

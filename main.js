@@ -147,7 +147,7 @@ function resetClickUpgrade(){
 	console.log("Reset click upgrade");
 	btnUpgLvl = 1;
 	btnUpgCost = 10; // reset to default
-	document.getElementById("btnUpg").innerHTML = "Upgrade - Lvl: " + btnUpgLvl + ", Cost: " + btnUpgCost;
+	document.getElementById("btnUpg").innerHTML = "Lvl: " + btnUpgLvl + ", Cost: " + btnUpgCost;
 }
 
 function resetZooDollars(){
@@ -322,7 +322,7 @@ function upgradeFunds(){
 		btnUpgLvl = btnUpgLvl + 1;		
 		zoodollars = zoodollars - btnUpgCost;
 		btnUpgCost = Math.floor(10 * Math.pow(1.1,btnUpgLvl));
-		document.getElementById("btnUpg").innerHTML = "Upgrade - Lvl: " + btnUpgLvl + ", Cost: " + btnUpgCost;
+		document.getElementById("btnUpg").innerHTML = "Lvl: " + btnUpgLvl + ", Cost: " + btnUpgCost;
 		document.getElementById("zoodollars").innerHTML = zoodollars;
 	}
 	else{
