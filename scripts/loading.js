@@ -6,3 +6,10 @@ $(function() { $("#topbarload").load("../components/topbar.html"); });
 $(function() { $("#banner").load("../components/banner.html"); });
 $(function() { $("#unlocks").load("../components/unlocks.html"); });
 $(function() { $("#exhibits").load("../components/exhibits.html"); });
+
+// Wait until finished loading?
+window.onload = function() {       
+    setTimeout(function(){
+        startScript();
+    }, 100); // ?is 0.1 seconds enough time for page to load??
+}

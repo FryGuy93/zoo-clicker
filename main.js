@@ -35,9 +35,9 @@ var fleaStartingCost = 50;
 var insectMultiplier = 1.1;
 
 // Starting script
-window.addEventListener("load", startScript);
+window.addEventListener("load", startScript); // NOT LOADING BEFORE loading.js...
 function startScript() {
-	document.getElementById("unlockInsectsCost").innerHTML = unlockInsectsCost;
+	document.getElementById("unlockInsectsCost").innerHTML = unlockInsectsCost; // CANNOT FIND ELEMENT...
 	document.getElementById("unlockArachnidsCost").innerHTML = unlockArachnidsCost;
 }
 // Game loop - Update stats - 1 second = 1 day
