@@ -1,0 +1,57 @@
+<!--Top bar with zoo dollars and such-->
+<div id="topbar">
+    <div id="topbarContainer">
+        <ul class="nav" >
+            <li>
+                <div class="manualButton2" title="Click Here to add Funds manually." onclick="addFunds2()"></div>
+            </li>
+            <li>
+                <!--id="btnUpg"-->
+                <a href="javascript:void(0);" id="btnUpg" class="saveload" title="Your income per click is equal to the number shown next to Lvl:" onclick="upgradeFunds()">
+                    Lvl: 1, Z$: 10
+                </a>
+            </li>
+            <li>
+                <h5><b>Z$:</b> 
+                    <br> 
+                    <span id="zoodollars">0</span></h5>
+                </li>
+                <li>
+                <h5>
+                    <b>&nbsp; IPD:</b> 
+                    <br> &nbsp; 
+                    <span id="ips">0</span>
+                </h5>
+            </li>
+            <li>
+                <h5>
+                    <b>&nbsp; Day:</b> 
+                    <br> &nbsp; 
+                    <span id="day">1</span>
+                </h5>
+            </li>
+            <li>
+                <h5>
+                    <b>&nbsp; Visitors:</b> 
+                    <br> &nbsp; 
+                    <span id="visitorsAttracted">0</span>
+                </h5>
+            </li>
+            <li>
+                <h5>
+                    <b>&nbsp; Entry Price:</b> 
+                    <br> &nbsp; 
+                    <span id="zooEntryPrice">0</span>
+                </h5>
+            </li>
+            <li>
+                <a href="javascript:void(0);" title="Save Game" class="saveload bi bi-floppy" onclick="saveGame()">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" title="Load Game" class="saveload bi bi-download" onclick="loadGame()">
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

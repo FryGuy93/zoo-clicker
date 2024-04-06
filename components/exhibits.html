@@ -1,0 +1,148 @@
+<!--<div id="exhTitle">
+    Exhibits
+</div>
+<br>--> 
+
+<!-- Bootstrap panels for Animals Exhibits types-->
+<div id="exhTitles">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a id="exhInsectsTitle" class="nav-link disabled active" onclick="selectInsects()" href="javascript:void(0);">Insects</a>
+        </li>
+        <li class="nav-item">
+            <a id="exhArachnidsTitle" class="nav-link disabled" aria-disabled="true" onclick="selectArachnids()" href="javascript:void(0);" >Arachnids</a>
+        </li>
+    </ul>
+</div>
+
+<div id="exhInsects" hidden>
+    <!--
+        <div id="exhInsects" hidden>
+    --> 
+    </br>
+    <!--Ant-->
+    <!-- https://getbootstrap.com/docs/5.3/components/card/ -->
+    <!--TODO responsive layout-->
+    <div id="animal">
+        <div id="container-left">
+            <div id="animal-image-container">
+                <img id="animal-image" src="ant.jpeg" alt="ant"/>
+            </div>
+            <div id="animal-button-container">
+                <a id="animal-button" href="javascript:void(0);" onclick="buyAnt();"  class="btn btn-primary">
+                    Buy 1
+                </a>
+            </div>
+        </div>
+        <div id="container-right">
+            <div style="background-color: #8FA843;">
+                <h5 id="card-text-left" class="card-title">
+                    Ants
+                </h5>
+                <h5 id="card-text-right" class="card-title">
+                    Cost: Z$ <span id="antCost">10</span>
+                </h5>
+                <div id="card-text-middle" class="card-text">
+                    <div><span id="ants">0</span> Ant(s)</div>
+                    Visitors attracted: <span id="antsAttraction">0</span>  <br> 
+                    Income generated per day: Z$ <span id="antsIncomePerDay">0</span>
+                </div>
+                <p class="card-text">
+                    <small class="text-body-secondary">
+                        Fun Fact: A single ant can carry 50 times its own bodyweight.
+                    </small>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--Ant End-->
+</br></br>
+    <!--Aphid-->			
+                <div id="animal">
+        <div id="container-left">
+            <div id="animal-image-container">
+                <img id="animal-image" src="aphid.jpeg" alt="ant"/>
+            </div>
+            <div id="animal-button-container">
+                <a id="animal-button" href="javascript:void(0);" onclick="buyAphid();"  class="btn btn-primary">
+                    Buy 1
+                </a>
+            </div>
+        </div>
+        <div id="container-right">
+            <div style="background-color: #8FA843;">
+                <h5 id="card-text-left" class="card-title">
+                    Aphids
+                </h5>
+                <h5 id="card-text-right" class="card-title">
+                    Cost: Z$ <span id="aphidCost">25</span>
+                </h5>
+                <div id="card-text-middle" class="card-text">
+                    <div><span id="aphids">0</span> Aphid(s)</div>
+                    Visitors attracted: <span id="aphidsAttraction">0</span>  <br> 
+                    Income generated per day: Z$ <span id="aphidsIncomePerDay">0</span>
+                </div>
+                <p class="card-text">
+                    <small class="text-body-secondary">
+                        Fun Fact: An adult female can produce daughters without mating.
+                    </small>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--Aphid End-->
+</br></br>
+<!--Flea-->			
+            <div id="animal">
+    <div id="container-left">
+        <div id="animal-image-container">
+            <img id="animal-image" src="flea.jpeg" alt="ant"/>
+        </div>
+        <div id="animal-button-container">
+            <a id="animal-button" href="javascript:void(0);" onclick="buyFlea();"  class="btn btn-primary">
+                Buy 1
+            </a>
+        </div>
+    </div>
+    <div id="container-right">
+        <div style="background-color: #8FA843;">
+            <h5 id="card-text-left" class="card-title">
+                Fleas
+            </h5>
+            <h5 id="card-text-right" class="card-title">
+                Cost: Z$ <span id="fleaCost">50</span>
+            </h5>
+            <div id="card-text-middle" class="card-text">
+                <div><span id="fleas">0</span> Flea(s)</div>
+                Visitors attracted: <span id="fleasAttraction">0</span>  <br> 
+                Income generated per day: Z$ <span id="fleasIncomePerDay">0</span>
+            </div>
+            <p class="card-text">
+                <small class="text-body-secondary">
+                    Fun Fact: 
+                </small>
+            </p>
+        </div>
+    </div>
+</div>
+<!--Flea End-->			
+</div>
+
+
+<div id="exhArachnids" hidden>
+    Arachnids...
+    <!--Butterfly-->
+    <div id="backLow">
+    <div id="aniTitle">
+    <b>BUTTERFLYS</b> (Income: 2)
+    </div>
+        <button title="I want to be a moth again..." onclick="buyButterfly()">Buy 1 Butterfly</button> <br/>
+    <div id="noAnimals"> Butterfly(s): <span id="butterflys">0</span> </div>
+    <div id="costForNext"> Cost: <span id="butterflyCost">16</span> </div>
+    <div id="totalIncome"> Total Income: <span id="totalButterflysIncome">0</span> </div>
+    <br>
+    Visitors attracted: <span id="butterflysAttraction">0</span>  <br> 
+    Income generated per day: Z$ <span id="butterflysIncomePerDay">0</span>
+    </div>
+    <!--Butterfly End-->
+</div>
