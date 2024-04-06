@@ -6,6 +6,27 @@ body {
 	margin-right:auto;
 }
 
+#topbar{
+	background: #8fa843;
+	position: fixed;
+	top: 0;
+	/*
+	width: 80%;
+	*/
+	width: 1000px;
+	text-align: center;
+	margin: auto;
+}
+
+#topbarContainer{
+	/*
+	background: #8fc000;
+	*/
+	text-align: center;
+	width: 80%;
+	margin: auto;
+}
+
 #introText{
 	height: 110px;
 }
@@ -15,7 +36,7 @@ body {
 	height: 1px;
 	background-color: #696969;
 	margin-left:100px;
-}	
+}
 
 #divider2{
 	width: 1000px;
