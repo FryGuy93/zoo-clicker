@@ -42,20 +42,20 @@ function loadGame(){
 	try {
 		//openToast("Loading game");
 		// TODO seperate out...
-
+		
 		document.getElementById("zoodollars").innerHTML = zoodollars;
 		document.getElementById("ips").innerHTML = ips;
 		btnUpgCost = Math.floor(10 * Math.pow(1.1,btnUpgLvl));
 		document.getElementById("btnUpg").innerHTML = "Upgrade - Lvl: " + btnUpgLvl + ", Cost: " + btnUpgCost;
-		addDay(day);
 		checkUnlocks();
-
+		
 		// Animals
 		document.getElementById("ants").innerHTML = ants;
 		document.getElementById("aphids").innerHTML = aphids;
 		document.getElementById("fleas").innerHTML = fleas;
-
 		
+		// ERROR HERE WHEN ANIMAL NOT FOUND ON PAGE...
+
 		// Calc ants cost
 		var nextAntsCost = Math.floor(8 * Math.pow(1.1,ants));
 		document.getElementById('antCost').innerHTML = nextAntsCost;
@@ -69,14 +69,14 @@ function loadGame(){
 		// Set aphids total income
 		var totalAphidsIncome = aphids * 1;
 		document.getElementById('totalAphidsIncome').innerHTML = totalAphidsIncome;		
-		
+
 		// Calc fleas cost
 		var nextFleasCost = Math.floor(15 * Math.pow(1.1,fleas));
 		document.getElementById('fleaCost').innerHTML = nextFleasCost;
 		// Set fleas total income
 		var totalFleaIncome = fleas * 1;
 		document.getElementById('totalFleasIncome').innerHTML = totalFleasIncome;		
-
+		
 		//document.getElementById('ips').innerHTML = ips;
 	}
 	catch(err) {
