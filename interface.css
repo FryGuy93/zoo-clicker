@@ -392,8 +392,6 @@ div:hover:before {
 	animation: fadeinout 4s linear forwards;
 }
 */
-
-
 /* Add animation */
 /* keeps it visible solid 80% of duration */
 /*
@@ -406,3 +404,9 @@ div:hover:before {
 	20%,80% { opacity: 1; top: 0%;}
 }
 */
+
+
+#toast-body{
+	/*Override Bootstrap*/
+	color: black;
+}
