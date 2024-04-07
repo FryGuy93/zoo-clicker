@@ -1,3 +1,11 @@
+/*
+Copyright (c) 2024, Ian Fry, Ian Harcourt-Smith
+All rights reserved.
+
+This source code is licensed under the MIT license found in the
+LICENSE file in the root directory of this source tree. 
+*/
+
 // NOT WORKING
 function buyAnimal(animalName, multiplier, animalCount, animalEle, animalIncomeEle, animalIncome, animalCostEle){
 	var animalCost = Math.floor(multiplier * Math.pow(1.1, animalCount));     			//works out the cost of this cursor
@@ -21,7 +29,7 @@ function buyAnimal(animalName, multiplier, animalCount, animalEle, animalIncomeE
 	
 }
 
-//Ants
+//#region Ants
 var ants = 0;
 function buyAnt(){ 
 	// TODO simplify into "buyAnimal" function
@@ -58,8 +66,9 @@ function buyAnt2(){ // NOT USED
 	//totalAntsIncome = ant.totalAntsIncome;
 	openToast("WORKING! " + ants + ", " + totalAntsIncome + ", " + ant.count + ", " + ant.totalAntsIncome.innerHTML); 
 }
+//#endregion
 
-//Aphids
+//#region Aphids
 var aphids = 0;
 function buyAphid(){ 
 	// TODO simplify
@@ -79,8 +88,9 @@ function buyAphid(){
     var nextCost = Math.floor(25 * Math.pow(1.1,aphids));       //works out the cost of the next cursor
     document.getElementById('aphidCost').innerHTML = nextCost;  //updates the cursor cost for the user
 }
+//#endregion
 
-//Fleas
+//#region Fleas
 var fleas = 0;
 function buyFlea(){ 
 	// TODO simplify
@@ -100,3 +110,4 @@ function buyFlea(){
     var nextCost = Math.floor(50 * Math.pow(1.1,fleas));       //works out the cost of the next cursor
     document.getElementById('fleaCost').innerHTML = nextCost;  //updates the cursor cost for the user
 }
+//#endregion

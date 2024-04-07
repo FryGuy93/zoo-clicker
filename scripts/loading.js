@@ -1,3 +1,11 @@
+/*
+Copyright (c) 2024, Ian Fry, Ian Harcourt-Smith
+All rights reserved.
+
+This source code is licensed under the MIT license found in the
+LICENSE file in the root directory of this source tree. 
+*/
+
 // On page load - insert HTML
 $(function() { $("#netlify").load("../components/netlify.html"); });
 $(function() { $("#glossary").load("../components/glossary.html"); });
