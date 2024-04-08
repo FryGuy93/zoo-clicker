@@ -6,10 +6,12 @@ This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree. 
 */
 
+//#region funds
 function addFunds(){
     addFundsMulti(btnUpgLvl * 1);	
     document.getElementById("zoodollars").innerHTML = zoodollars;
 }
+
 function addFundsMulti(number){
 	zoodollars = zoodollars + number;
 	document.getElementById("zoodollars").innerHTML = zoodollars;
@@ -26,10 +28,32 @@ function upgradeFunds(){
 	else{
 		openToast("Cannot upgrade - not enough funds!"); 
 	}
-
 }
+//#endregion
 
 function addDay(number){
     day += number;
     document.getElementById("day").innerHTML = day;
+}
+
+function darkModeSwitch(){
+	// CSS VALUES...
+	//--darkmodebody: #131d26;
+	//--darkmodetext: #ffffff;
+	// Get the root element
+	// Get the styles (properties and values) for the root
+	//alert("The value of --darkmodebody is: " + rs.getPropertyValue('--darkmodebody'));
+  //document.getElementById("p2").style.color="blue";
+	var r = document.querySelector(':root');
+  	var rs = getComputedStyle(r);
+	if (isDarkMode == false) { // but darkmode is already on???
+		isDarkMode = !isDarkMode;
+		r.style.setProperty('--darkmodebody', '#131d26');
+		r.style.setProperty('--darkmodetext', '#ffffff');
+		// TODO Get values and store in temp?
+	} else {
+		isDarkMode = !isDarkMode;
+		r.style.setProperty('--darkmodebody', '#ffffff');
+		r.style.setProperty('--darkmodetext', '#131d26');
+	}
 }

@@ -35,7 +35,6 @@ Visual Studio Code with extensions:
 ![version2015](https://github.com/FryGuy93/zoo-clicker/blob/main/images/version2015.png)
 
 ## Created by
----
 ### Ian Fry 
 Started in 2015 after finishing University.
 ### Ian Harcourt-Smith 

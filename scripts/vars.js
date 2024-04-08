@@ -25,6 +25,9 @@ var visitorsPerDay = 0;
 var zooEntryPrice_initial = 10;
 var zooDollarsPerDay = 0
 var ticketPrice = 0;
+var isDarkMode = true;
+var isPageFinishedLoading = false;
+
 
 // Animal variables
 var antsAttraction = 1;
