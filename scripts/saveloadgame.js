@@ -57,6 +57,9 @@ function loadGame(){
 		//document.getElementById("btnUpg").innerHTML = "Lvl: " + btnUpgLvl + ", Cost: " + btnUpgCost;
 		checkUnlocks();
 		
+		// Fix for no open tabs...
+		selectInsects(); // TODO test - check when user doesn't have unlocked in save
+
 		// Animals
 		document.getElementById("ants").innerHTML = ants;
 		document.getElementById("aphids").innerHTML = aphids;
@@ -86,6 +89,7 @@ function loadGame(){
 		document.getElementById('totalFleasIncome').innerHTML = totalFleasIncome;		
 		
 		//document.getElementById('ips').innerHTML = ips;
+		
 	}
 	catch(err) {
 		//document.body.innerHTML = err.message + "<br>" + document.body.innerHTML;
