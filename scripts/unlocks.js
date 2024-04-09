@@ -86,6 +86,8 @@ function selectInsects(){
 
 		document.getElementById("exhArachnids").hidden = true;
 		document.getElementById("exhArachnidsTitle").classList.remove("active");
+	} else {
+		openToast("Insects not unlocked!"); 
 	}
 }
 
@@ -97,5 +99,7 @@ function selectArachnids(){
 
 		document.getElementById("exhArachnids").hidden = false;
 		document.getElementById("exhArachnidsTitle").classList.add("active");
+	}else {
+		openToast("Arachnids not unlocked!"); 
 	}
 }
