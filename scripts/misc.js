@@ -26,7 +26,8 @@ function upgradeFunds(){
 		btnUpgLvl = btnUpgLvl + 1;		
 		zoodollars = zoodollars - btnUpgCost;
 		btnUpgCost = Math.floor(10 * Math.pow(1.1,btnUpgLvl));
-		document.getElementById("btnUpg").innerHTML = "Lvl: " + btnUpgLvl + ", Cost: " + btnUpgCost;
+		//document.getElementById("btnUpg").innerHTML = "Lvl: " + btnUpgLvl + ", Cost: " + btnUpgCost;
+		document.getElementById("btnUpg").innerHTML = ` Z$ ${btnUpgCost} (lvl ${btnUpgLvl})`
 		document.getElementById("zoodollars").innerHTML = zoodollars;
 	}
 	else{
