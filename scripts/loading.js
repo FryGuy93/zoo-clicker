@@ -6,15 +6,6 @@ This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree. 
 */
 
-// Wait until finished loading?
-/*
-window.onload = function() {       
-    setTimeout(function(){
-        startScript();
-    }, 100); // ?is 0.1 seconds enough time for page to load??
-}
-*/
-
 // Loop to wait until finished loading... or timeout
 var waitingForPageLoaded_IntervalId = window.setInterval(waitingForPageLoaded, 100);
 function waitingForPageLoaded() {
@@ -26,8 +17,6 @@ function waitingForPageLoaded() {
         startScript();
     }
 }
-//isPageFinishedLoading
-
 
 // On page load - insert HTML
 $(function() { 
