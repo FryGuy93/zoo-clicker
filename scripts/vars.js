@@ -28,10 +28,33 @@ var ticketPrice = 0;
 var isDarkMode = true;
 var isPageFinishedLoading = false;
 
-
 // Animal variables
+var costMultiplier = 1.1; //insectMultiplier
+
+var ants = 0;
+var antCostMultiplier = 10;
+var antIPDMultiplier = 1; // USED?
 var antsAttraction = 1;
+
+var aphids = 0;
+var aphidCostMultiplier = 25;
+var aphidIPDMultiplier = 2;
 var aphidsAttraction = 2;
+
+var fleas = 0;
+var fleaCostMultiplier = 50;
+var fleaIPDMultiplier = 5;
 var fleasAttraction = 3;
-var fleaStartingCost = 50;
-var insectMultiplier = 1.1;
+
+//#region Classes/Objects
+//var animal = {a:1}; // New object
+
+class animal {
+	name = "";
+	count = 0;
+	multiplier = 0;
+	cMultiplier = 0;
+	IPDMultiplier = 0;
+	//ant.totalAntsIncome = totalAntsIncome;
+}
+//#endregion
