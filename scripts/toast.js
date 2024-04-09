@@ -6,7 +6,7 @@ This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree. 
 */
 
-// toast with message
+// toast with message - notification...
 function openToast(MyInfo) {
 	$('.toast').toast("show");
 

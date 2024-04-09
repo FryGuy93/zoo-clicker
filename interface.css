@@ -421,6 +421,15 @@ div:hover:before {
 	color: black;
 }
 
+.liveToastContainer{
+	/*
+	toast-container position-fixed top-0 start-0 p-3
+	*/
+	position: fixed;
+	top: 100px;
+	left: 0;
+	z-index: 99;
+}
 
 #loadGame{
 	height: 50px;
