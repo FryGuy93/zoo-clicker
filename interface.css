@@ -1,4 +1,10 @@
 /*Variables*/
+/*
+Indexes - z-index for layers
+topbar: 9
+debugbar: 99
+*/
+
 :root {
 	--darkmodebody: #131d26;
 	--darkmodetext: #ffffff;
@@ -33,6 +39,7 @@ body {
 	width: 1000px;
 	text-align: center;
 	margin: auto;
+	z-index: 9;
 }
 
 #topbarContainer{
@@ -420,4 +427,24 @@ div:hover:before {
 	z-index: 99;
 	bottom: 20px;
 	left: 20px;
+}
+/**/
+#debugbar{
+	background: red; 
+	position: fixed; 
+	top: 0; 
+	left: 0; 
+	text-align: center; 
+	width: 100%; 
+	font-size: 6px;
+	z-index: 99; 
+}
+#zooDollarsContainer{
+/*
+width: 100px; 
+text-align: left;
+*/
+	font-size: 35px;
+}
+#zoodollars{
 }
