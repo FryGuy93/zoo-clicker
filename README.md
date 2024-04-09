@@ -1,3 +1,4 @@
+WARNING: THIS GAME IS WORK IN PROGRESS
 # Zoo Clicker
 ![Banner](https://github.com/FryGuy93/zoo-clicker/blob/main/images/zooclickersbanner.jpg)
 ![Coin](https://github.com/FryGuy93/zoo-clicker/blob/main/images/zoodollarcoin_clicked.png)
