@@ -3,52 +3,27 @@
     <div id="topbarContainer">
         <ul class="nav" >
             <li>
-                <div class="manualButton2" title="Click Here to add Funds manually." onclick="addFunds()"></div>
+                <div style="display: flex;">
+                    <div class="manualButton2" onclick="addFunds()" title="Click here to add funds manually."></div>
+                    <div id="zooDollarsContainer"><span id="zoodollars" title="Zoo Dollars">0</span></div>
+                </div>
+                <button id="btnUpg" class="saveload bi bi-arrow-up-square-fill" onclick="upgradeFunds()" title="Upgrade clicker"> Z$ 10 (lvl 1)</button> 
             </li>
             <li>
-                <div id="zooDollarsContainer"><span id="zoodollars">0</span></div>
+                <div class="IPDContainer" title="Income Per Day"></div>
+                <h5><span id="ips" title="Income Per Day">0</span></h5>
             </li>
             <li>
-                <!--id="btnUpg"-->
-                <a href="javascript:void(0);" id="btnUpg" class="saveload" title="Your income per click is equal to the number shown next to Lvl:" onclick="upgradeFunds()">
-                    Lvl: 1, Z$: 10
-                </a>
+                <div class="DayContainer" title="Day Number"></div>
+                <h5><span id="day" title="Day Number">1</span></h5>
             </li>
             <li>
-                <h5>
-                    <b>&nbsp; IPD:</b> 
-                    <br> &nbsp; 
-                    <span id="ips">0</span>
-                </h5>
+                <div class="VisitorsContainer" title="Visitors Per Day"></div>
+                <h5><span id="visitorsAttracted" title="Visitors Per Day">0</span></h5>
             </li>
             <li>
-                <h5>
-                    <b>&nbsp; Day:</b> 
-                    <br> &nbsp; 
-                    <span id="day">1</span>
-                </h5>
-            </li>
-            <li>
-                <h5>
-                    <b>&nbsp; Visitors:</b> 
-                    <br> &nbsp; 
-                    <span id="visitorsAttracted">0</span>
-                </h5>
-            </li>
-            <li>
-                <h5>
-                    <b>&nbsp; Entry Price:</b> 
-                    <br> &nbsp; 
-                    <span id="zooEntryPrice">0</span>
-                </h5>
-            </li>
-            <li>
-                <a href="javascript:void(0);" title="Save Game" class="saveload bi bi-floppy" onclick="saveGame()">
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0);" title="Load Game" class="saveload bi bi-download" onclick="loadGame()">
-                </a>
+                <div class="EntryPriceContainer" title="Entry Price"></div>
+                <h5><span id="zooEntryPrice" title="Entry Price">0</span></h5>
             </li>
         </ul>
     </div>

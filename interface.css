@@ -12,6 +12,10 @@ debugbar: 99
 	--mainColor2: #B3D6A5;
 	--url1: url("/images/zoodollarcoin_clicked.png") no-repeat;
 	--url2: url("/images/zoodollarcoin_hover.png") no-repeat;
+	--url3: url("/images/incomePerDay.png") no-repeat;
+	--url4: url("/images/day.png") no-repeat;
+	--url5: url("/images/visitors.png") no-repeat;
+	--url6: url("/images/entryPrice.png") no-repeat;
 }
 
 body {
@@ -29,6 +33,16 @@ body {
 	*/
 	--bs-secondary-color: var(--mainColor1);
 }
+
+#topbarContainer{
+	/*
+	background: #8fc000;
+	margin: auto;
+	width: 80%;
+	*/
+	text-align: center;
+}
+
 #topbar{
 	background: var(--mainColor1);
 	position: fixed;
@@ -42,13 +56,9 @@ body {
 	z-index: 9;
 }
 
-#topbarContainer{
-	/*
-	background: #8fc000;
-	*/
-	text-align: center;
-	width: 80%;
-	margin: auto;
+/* TopBar space between elements*/
+.nav > li{
+	padding-right: 20px;
 }
 
 #introText{
@@ -219,18 +229,9 @@ button:active{
 }
 
 
-.saveload{
-	text-align: center;
-	padding:10px;
-	float: right;
-    background-color:rgba(255,204,0,1);
-    border-radius:25px;
-    cursor:pointer;
-    display:block;
-	margin-left: 10px;
-}
-
 #btnUpg {
+	padding: 0;
+	margin: 0;
 	/*
 	margin-left: 400px;
 	width: 200px;
@@ -420,6 +421,34 @@ div:hover:before {
 	color: black;
 }
 
+
+#loadGame{
+	height: 50px;
+	width: 50px;
+	position: fixed;
+	z-index: 99;
+	bottom: 20px;
+	right: 20px;
+}
+#saveGame{
+	height: 50px;
+	width: 50px;
+	position: fixed;
+	z-index: 99;
+	bottom: 20px;
+	right: 80px;
+	/*
+	text-align: center;
+	padding:10px;
+	float: right;
+    background-color:rgba(255,204,0,1);
+    border-radius:25px;
+    cursor:pointer;
+    display:block;
+	margin-left: 10px;
+	*/
+}
+
 #darkModeSwitch{
 	height: 50px;
 	width: 50px;
@@ -428,6 +457,7 @@ div:hover:before {
 	bottom: 20px;
 	left: 20px;
 }
+
 /**/
 #debugbar{
 	background: red; 
@@ -439,6 +469,7 @@ div:hover:before {
 	font-size: 6px;
 	z-index: 99; 
 }
+
 #zooDollarsContainer{
 /*
 width: 100px; 
@@ -446,5 +477,66 @@ text-align: left;
 */
 	font-size: 35px;
 }
+
 #zoodollars{
+}
+
+.IPDContainer{
+	width: 50px;
+	height: 50px;
+	background: var(--url3);
+	/*
+	background-image: url(/images/zoodollarcoin_clicked.png);
+	*/
+	background-size: contain;
+	background-position: center;
+}
+
+.DayContainer{
+	width: 50px;
+	height: 50px;
+	background: var(--url4);
+	/*
+	background-image: url(/images/zoodollarcoin_clicked.png);
+	*/
+	background-size: contain;
+	background-position: center;
+	-webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+
+@-moz-keyframes spin { 
+    100% { -moz-transform: rotate(720deg); } 
+}
+@-webkit-keyframes spin { 
+    100% { -webkit-transform: rotate(720deg); } 
+}
+@keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(720deg); 
+        transform:rotate(720deg); 
+    } 
+}
+
+.VisitorsContainer{
+	width: 50px;
+	height: 50px;
+	background: var(--url5);
+	/*
+	background-image: url(/images/zoodollarcoin_clicked.png);
+	*/
+	background-size: contain;
+	background-position: center;
+}
+
+.EntryPriceContainer{
+	width: 50px;
+	height: 50px;
+	background: var(--url6);
+	/*
+	background-image: url(/images/zoodollarcoin_clicked.png);
+	*/
+	background-size: contain;
+	background-position: center;
 }
