@@ -20,8 +20,12 @@ LICENSE file in the root directory of this source tree.
 // Starting script
 window.addEventListener("load", startScript); // NOT LOADING BEFORE loading.js...
 function startScript() {
-	document.getElementById("unlockInsectsCost").innerHTML = unlockInsectsCost; // CANNOT FIND ELEMENT...
-	document.getElementById("unlockArachnidsCost").innerHTML = unlockArachnidsCost;
+	try {
+		document.getElementById("unlockInsectsCost").innerHTML = unlockInsectsCost; // CANNOT FIND ELEMENT...
+		document.getElementById("unlockArachnidsCost").innerHTML = unlockArachnidsCost;
+	} catch (error) {
+		console.log("Known error...#1");
+	}
 }
 // Game loop - Update stats - 1 second = 1 day
 // Delta time? window.requestAnimationFrame?
