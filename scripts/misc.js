@@ -9,12 +9,17 @@ LICENSE file in the root directory of this source tree.
 //#region funds
 function addFunds(){
     addFundsMulti(btnUpgLvl * 1);	
-    document.getElementById("zoodollars").innerHTML = zoodollars;
 }
 
+/**
+ * 
+ * @param {*} number 
+ */
 function addFundsMulti(number){
 	zoodollars = zoodollars + number;
-	document.getElementById("zoodollars").innerHTML = zoodollars;
+	var zoodollars_asCurrency = zoodollars.toLocaleString('en-US');
+	$("#zoodollars").html(zoodollars_asCurrency);
+	//console.log(number.toLocaleString('us-US', { style: 'currency', currency: 'USD' }));
 }
 
 function upgradeFunds(){
