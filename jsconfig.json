@@ -3,5 +3,10 @@
         "target": "ES6",
         "module": "CommonJS",
         "checkJs": true
+    },
+    "typeAcquisition": {
+        "include": [
+            "jquery"
+        ]
     }
 }
