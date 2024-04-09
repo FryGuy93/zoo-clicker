@@ -62,3 +62,8 @@ function loadingProcess(responseTxt, statusTxt, xhr, isFinished){
         isPageFinishedLoading = true;
     }
 }
+
+// Say Hi
+setTimeout(function(){
+    openToast("Welcome!");
+}, 1000); 
