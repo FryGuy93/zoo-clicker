@@ -12,14 +12,13 @@ function addFunds(){
 }
 
 /**
- * 
+ * Add funds with a multiplier
  * @param {*} number 
  */
 function addFundsMulti(number){
 	zoodollars = zoodollars + number;
-	var zoodollars_asCurrency = zoodollars.toLocaleString('en-US');
+	var zoodollars_asCurrency = zoodollars.toLocaleString('en-US'); // ('us-US', { style: 'currency', currency: 'USD' }));
 	$("#zoodollars").html(zoodollars_asCurrency);
-	//console.log(number.toLocaleString('us-US', { style: 'currency', currency: 'USD' }));
 }
 
 function upgradeFunds(){
