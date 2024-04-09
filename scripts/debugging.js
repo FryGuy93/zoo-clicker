@@ -31,7 +31,7 @@ function debugScript() {
 	// Add "DEBUGGING" to top of page
 	if (isDebugMode) {
 		document.body.innerHTML = `
-	<div style="z-index: 99; background: red; position: fixed; top: 0; left: 0; text-align: center; width: 100%; font-size: 6px;">
+	<div id="debugbar">
 		DEBUGGING - 
 		<a href="/">Home</a>
 		<a href="index.html">Index</a>
