@@ -6,6 +6,7 @@ This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree. 
 */
 
+// Buttons
 function saveGame(){
 	//openToast("Saving data...");
 	var allItems = [
@@ -17,13 +18,15 @@ function saveGame(){
 		btnUpgLvl,
 		day,
 		isInsectsUnlocked,
-		isArachnidsUnlocked
+		isArachnidsUnlocked,
+		stats_clickedCount
 	];
 	
 	localStorage['saveGame'] = btoa(JSON.stringify(allItems));
 	openToast("Data saved! :)");
 }
 
+// Buttons
 function loadGame(){
 	//openToast("Loading game");
 
@@ -37,7 +40,8 @@ function loadGame(){
 		btnUpgLvl = allItems[5];
 		day = allItems[6];
 		isInsectsUnlocked = allItems[7];
-		isArachnidsUnlocked = allItems[8];		
+		isArachnidsUnlocked = allItems[8];
+		stats_clickedCount = allItems[9];
 	}
 	catch(err) {
 		openToast_Error("No saved game to load");

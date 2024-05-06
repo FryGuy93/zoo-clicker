@@ -8,11 +8,13 @@ LICENSE file in the root directory of this source tree.
 
 //#region funds
 function addFunds(){
-    addFundsMulti(btnUpgLvl * 1);	
+    addFundsMulti(btnUpgLvl * 1);
+	stats_clickedCount++;
+	//console.log("clicked addFunds");
 }
 
 /**
- * Add funds with a multiplier
+ * Add funds with a multiplier - runs every day
  * @param {*} number 
  */
 function addFundsMulti(number){
@@ -41,6 +43,7 @@ function addDay(number){
     document.getElementById("day").innerHTML = day;
 }
 
+
 function darkModeSwitch(){
 	// CSS VALUES...
 	//--darkmodebody: #131d26;
@@ -49,7 +52,8 @@ function darkModeSwitch(){
 	// Get the styles (properties and values) for the root
 	//alert("The value of --darkmodebody is: " + rs.getPropertyValue('--darkmodebody'));
   //document.getElementById("p2").style.color="blue";
-	var r = document.querySelector(':root');
+
+  	var r = document.querySelector(':root');
   	var rs = getComputedStyle(r);
 	if (isDarkMode == false) { // but darkmode is already on???
 		isDarkMode = !isDarkMode;

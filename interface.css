@@ -241,6 +241,12 @@ button:active{
 	*/
 }
 
+#btnStats {
+	padding: 0;
+	margin: 10px;
+	width: 100%;
+}
+
 div:hover:before {
     content: attr(data-tooltip);
     position: absolute;
