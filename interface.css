@@ -241,9 +241,6 @@ button:active{
 	*/
 }
 
-#btnUpg:hover {
-    background-color: #000000;	
-}
 div:hover:before {
     content: attr(data-tooltip);
     position: absolute;
