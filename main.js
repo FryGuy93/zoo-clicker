@@ -24,6 +24,7 @@ function startScript() {
 		document.getElementById("unlockInsectsCost").innerHTML = unlockInsectsCost; // CANNOT FIND ELEMENT...
 		document.getElementById("unlockArachnidsCost").innerHTML = unlockArachnidsCost;
 		//statsShowHide(); // TESTING
+		settingsLoad();
 	} catch (error) {
 		console.log("Known error...#1");
 	}

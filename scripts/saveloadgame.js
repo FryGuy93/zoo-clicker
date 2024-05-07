@@ -6,6 +6,30 @@ This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree. 
 */
 
+//IndexedDB?
+
+/**
+ * Save and load at start of game - preferences/settings
+ */
+function settingsSave(){
+	localStorage.isDarkMode = isDarkMode;
+	//openToast("Settings saved!");
+	console.log("Settings saved!");
+}
+// Loaded at start
+function settingsLoad(){
+	console.log("Settings loaded! - Dark Mode?: " + localStorage.isDarkMode);
+	//openToast("Settings loaded! - Dark Mode?: " + localStorage.isDarkMode);
+	//isDarkMode = localStorage.isDarkMode;
+	//if(localStorage.isDarkMode == true) darkModeSwitch(true);
+	if(localStorage.isDarkMode == "true") darkMode_Set(true);
+	if(localStorage.isDarkMode == "false") darkMode_Set(false);
+	
+	//console.log("localStorage.isDarkMode: " + localStorage.isDarkMode);
+
+	//darkModeSwitch(localStorage.isDarkMode);
+}
+
 // Buttons
 function saveGame(){
 	//openToast("Saving data...");
