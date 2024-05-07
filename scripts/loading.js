@@ -33,6 +33,9 @@ $(function() {
     $("#stats").load("../components/stats.html", function (response, status, xhr){
         loadingProcess(response, status, xhr)
     });
+    $("#achievements").load("../components/achievements.html", function (response, status, xhr){
+        loadingProcess(response, status, xhr)
+    });
     $("#toasts").load("../components/toasts.html", function (response, status, xhr){
         loadingProcess(response, status, xhr)
     });

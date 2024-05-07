@@ -6,13 +6,17 @@ This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree. 
 */
 
-//IndexedDB?
 
 /**
  * Save and load at start of game - preferences/settings
  */
 function settingsSave(){
 	localStorage.isDarkMode = isDarkMode;
+	localStorage.isCheckDollars_Achievement_Unlocked = isCheckDollars_Achievement_Unlocked;
+	localStorage.isCheckUnlocks_Achievement_Unlocked = isCheckUnlocks_Achievement_Unlocked;
+	console.log("isCheckDollars_Achievement_Unlocked: " + isCheckDollars_Achievement_Unlocked);
+	console.log("isCheckUnlocks_Achievement_Unlocked: " + isCheckUnlocks_Achievement_Unlocked);
+
 	//openToast("Settings saved!");
 	console.log("Settings saved!");
 }
@@ -24,10 +28,30 @@ function settingsLoad(){
 	//if(localStorage.isDarkMode == true) darkModeSwitch(true);
 	if(localStorage.isDarkMode == "true") darkMode_Set(true);
 	if(localStorage.isDarkMode == "false") darkMode_Set(false);
+
+	// Achievements
+	// USE - IndexedDB?
+	//if(localStorage.isCheckDollars_Achievement_Unlocked == "false") isCheckDollars_Achievement_Unlocked = false;
+	if(localStorage.isCheckDollars_Achievement_Unlocked == "true") {
+		// TODO MOVE TO OWN THING
+		isCheckDollars_Achievement_Unlocked = true;
+		$("#checkDollars_Achievement_Btn").addClass("bi bi-unlock-fill");
+		$("#checkDollars_Achievement_Btn").css("background-color", "rgb(0, 162, 22)");
+	}
 	
+	//if(localStorage.isCheckUnlocks_Achievement_Unlocked == "false") isCheckUnlocks_Achievement_Unlocked = false;
+	if(localStorage.isCheckUnlocks_Achievement_Unlocked == "true") {
+		// TODO MOVE TO OWN THING
+		isCheckUnlocks_Achievement_Unlocked = true;
+		$("#checkUnlocks_Achievement_Btn").addClass("bi bi-unlock-fill");
+		$("#checkUnlocks_Achievement_Btn").css("background-color", "rgb(0, 162, 22)");
+	}
+	
+	//console.log("localStorage.isCheckUnlocks_Achievement_Unlocked: " + localStorage.isCheckUnlocks_Achievement_Unlocked);
 	//console.log("localStorage.isDarkMode: " + localStorage.isDarkMode);
 
 	//darkModeSwitch(localStorage.isDarkMode);
+	hasSettingsLoaded = true; // stops dark mode on load check from saving
 }
 
 // Buttons

@@ -493,6 +493,36 @@ text-align: left;
 #zoodollars{
 }
 
+#achievementBtns{
+	width: 150px;
+	position: fixed;
+	z-index: 99;
+	top: 20px;
+	right: 10px;
+	/*
+    background-color:rgba(25,204,0,1);
+	text-align: center;
+	padding:10px;
+	float: right;
+    background-color:rgba(255,204,0,1);
+    border-radius:25px;
+    cursor:pointer;
+    display:block;
+	margin-left: 10px;
+	*/
+}
+
+#achievementBtns > button{
+	margin: 0px;
+    background-color:rgb(255, 162, 0);
+}
+
+/*
+.achievementUnlocked{
+	background-color:rgb(0, 162, 0);
+}
+*/
+
 .IPDContainer{
 	width: 50px;
 	height: 50px;

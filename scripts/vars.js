@@ -9,10 +9,13 @@ LICENSE file in the root directory of this source tree.
 var isDebugMode = false; 
 //var isDebugMode = true; // comment this out to disable debug mode and run in production mode
 var isDebugModeLocalHostOnly = true; //http://localhost:3000/debug.html
+var hasSettingsLoaded = false;
 var zoodollars = 0;
 var ips = 0;
 var day = 0;
-var onehundred = 1000000000;
+var onehundred = 10000; //00000
+var isCheckDollars_Achievement_Unlocked = false;
+var isCheckUnlocks_Achievement_Unlocked = false;
 var btnUpgLvl = 1;
 var btnUpgCost = 10;
 var gameLoopTime = 1000; // 1000 = 1 second

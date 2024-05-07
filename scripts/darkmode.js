@@ -24,7 +24,9 @@ function darkMode_Set(darkMode){
 	if (isDarkMode === true) setPageDark();
 	if (isDarkMode === false) setPageLight();
 	
-	settingsSave();
+	if (hasSettingsLoaded) {
+		settingsSave();
+	}
 }
 
 function setPageDark(){

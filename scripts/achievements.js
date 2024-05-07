@@ -6,15 +6,77 @@ This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree. 
 */
 
-// Achievement
-function checkDollars(){
-	if(zoodollars == onehundred){
-		alert("You're A Billionaire Bruh.");
+// Achievements
+// 	All unlocks unlocked
+// 	1 of each animal
+// 	# of each animal
+// 	lvl 10 clicker
+// 	...
+var doneOnce = false; // TODO REMOVE?
+function checkAchievements(){
+	checkDollars_Achievement(); // 1000
+	checkUnlocks_Achievement(); // 2 unlocks
+	if (doneOnce == false) {
+		doneOnce = true;
+		$("#achievementsHeader").on("click", hideShowAchievements);
 	}
 }
 
-// All unlocks unlocked
-// 1 of each animal
-// # of each animal
-// lvl 10 clicker
-// ...
+function checkDollars_Achievement(){
+	if (isCheckDollars_Achievement_Unlocked) return;
+	
+	if(zoodollars >= onehundred){
+		isCheckDollars_Achievement_Unlocked = true;
+		$("#checkDollars_Achievement_Btn").addClass("bi bi-unlock-fill");
+		$("#checkDollars_Achievement_Btn").css("background-color", "rgb(0, 162, 22)");
+		alert("You're A Billionaire Bruh.");
+		settingsSave();
+	}
+}
+
+function checkUnlocks_Achievement(){
+	if (isCheckUnlocks_Achievement_Unlocked) return;
+	
+	if(isInsectsUnlocked == true &&
+		isArachnidsUnlocked == true
+	){
+		isCheckUnlocks_Achievement_Unlocked = true;
+		$("#checkUnlocks_Achievement_Btn").addClass("bi bi-unlock-fill");
+		$("#checkUnlocks_Achievement_Btn").css("background-color", "rgb(0, 162, 22)");
+		alert("All unlocks unlocked!");
+		settingsSave();
+	}
+	//unlockedAreasCount 
+}
+
+function checkDollars_Achievement_Button(){
+	if (!isCheckDollars_Achievement_Unlocked) openToast("Locked");
+	if (isCheckDollars_Achievement_Unlocked) openToast("Unlocked");
+}
+
+function checkUnlocks_Achievement_Button(){
+	if (!isCheckUnlocks_Achievement_Unlocked) openToast("Locked");
+	if (isCheckUnlocks_Achievement_Unlocked) openToast("Unlocked");
+}
+
+
+
+function hideShowAchievements(){
+	$("#checkDollars_Achievement_Btn").toggle();
+	$("#checkUnlocks_Achievement_Btn").toggle();
+	$("#reset_Achievements_Btn").toggle();
+}
+
+
+function resetAchievements(){
+	isCheckDollars_Achievement_Unlocked = false;
+	isCheckUnlocks_Achievement_Unlocked = false;
+
+	// TODO MOVE TO A BETTER WAY
+	$("#checkDollars_Achievement_Btn").addClass("bi bi-lock-fill");
+	$("#checkDollars_Achievement_Btn").css("background-color", "rgb(255, 162, 22)");
+	$("#checkUnlocks_Achievement_Btn").addClass("bi bi-lock-fill");
+	$("#checkUnlocks_Achievement_Btn").css("background-color", "rgb(255, 162, 22)");
+	alert("Achievements Reset!");
+	settingsSave();
+}

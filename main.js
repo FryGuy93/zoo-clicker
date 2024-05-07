@@ -39,6 +39,7 @@ function mainGameLoop() {
 	addDay(1);
 	mainCalculations();
 	mainUIUpdate();
+	checkAchievements();
 }
 function mainCalculations() {
 	// People = animal * animal attraction (per animal)
