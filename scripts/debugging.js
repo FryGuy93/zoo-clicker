@@ -7,6 +7,7 @@ LICENSE file in the root directory of this source tree.
 */
 
 //#region Debugging
+
 window.addEventListener("load", debugScript);
 
 // debug mode - show warning but display page differently - makes it easier to see and test changes
@@ -30,18 +31,26 @@ function debugScript() {
 
 	// Add "DEBUGGING" to top of page
 	if (isDebugMode) {
-		document.body.innerHTML = `
-	<div id="debugbar">
-		DEBUGGING - 
-		<a href="/">Home</a>
-		<a href="index.html">Index</a>
-		<a href="debug.html">Debug</a>
-		<a href="todo.html">TODO</a>
-	</div>
-		`
-		+ document.body.innerHTML;
-
-
+		// this code breaks canvas
+		/*
+		var debugBar = `aaa
+		`;
+		document.body.prepend(debugBar);
+		*/
+			/*
+			document.body.innerHTML = `
+			<div id="debugbar">
+			DEBUGGING - 
+			<a href="/">Home</a>
+			<a href="index.html">Index</a>
+			<a href="debug.html">Debug</a>
+			<a href="todo.html">TODO</a>
+			</div>
+			`
+			+ document.body.innerHTML;
+		*/	
+		
+		
 		btnUpgLvl = 100; // quicker debugging
 	}
 }

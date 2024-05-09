@@ -23,6 +23,13 @@ $(function() {
     $("#div1").load("demo_test.txt", function (response, status, xhr){
         loadingProcess(response, status, xhr)
     });
+    if (isDebugMode) {
+		$(function() { 
+			$("#debugbardiv").load("../components/debugbar.html", function (response, status, xhr){
+				loadingProcess(response, status, xhr)
+			});
+		});
+    }
     //$("#div1").load("demo_test.txt", loadingProcess(response, status, xhr));
     $("#netlify").load("../components/netlify.html", function (response, status, xhr){
         loadingProcess(response, status, xhr)
