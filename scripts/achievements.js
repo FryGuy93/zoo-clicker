@@ -13,6 +13,9 @@ LICENSE file in the root directory of this source tree.
 // 	lvl 10 clicker
 // 	...
 var doneOnce = false; // TODO REMOVE?
+var checkDollars_Achievement_Hint = "Get more dollars!";
+var checkUnlocks_Achievement_Hint = "Unlock more!";
+
 function checkAchievements(){
 	checkDollars_Achievement(); // 1000
 	checkUnlocks_Achievement(); // 2 unlocks
@@ -29,8 +32,10 @@ function checkDollars_Achievement(){
 		isCheckDollars_Achievement_Unlocked = true;
 		$("#checkDollars_Achievement_Btn").addClass("bi bi-unlock-fill");
 		$("#checkDollars_Achievement_Btn").css("background-color", "rgb(0, 162, 22)");
-		alert("You're A Billionaire Bruh.");
+		alert("Money!");
+		//alert("You're A Billionaire Bruh.");
 		settingsSave();
+		celebrateAgain();
 	}
 }
 
@@ -45,18 +50,30 @@ function checkUnlocks_Achievement(){
 		$("#checkUnlocks_Achievement_Btn").css("background-color", "rgb(0, 162, 22)");
 		alert("All unlocks unlocked!");
 		settingsSave();
+		celebrateAgain();
 	}
 	//unlockedAreasCount 
 }
 
 function checkDollars_Achievement_Button(){
-	if (!isCheckDollars_Achievement_Unlocked) openToast("Locked");
-	if (isCheckDollars_Achievement_Unlocked) openToast("Unlocked");
+	if (!isCheckDollars_Achievement_Unlocked) {
+		openToast("Locked - " + checkDollars_Achievement_Hint);
+
+	}
+	if (isCheckDollars_Achievement_Unlocked){
+		openToast("Unlocked - Congrats!");
+		celebrateAgain();
+	}
 }
 
 function checkUnlocks_Achievement_Button(){
-	if (!isCheckUnlocks_Achievement_Unlocked) openToast("Locked");
-	if (isCheckUnlocks_Achievement_Unlocked) openToast("Unlocked");
+	if (!isCheckUnlocks_Achievement_Unlocked){
+		openToast("Locked - " + checkUnlocks_Achievement_Hint);
+	} 
+	if (isCheckUnlocks_Achievement_Unlocked) {
+		openToast("Unlocked - Congrats!");
+		celebrateAgain();
+	}
 }
 
 
