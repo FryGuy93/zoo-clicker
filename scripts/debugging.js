@@ -96,7 +96,7 @@ function resetIncome(){
 // Remove from income, reset animal
 function resetAnts(){
 	console.log("Reset ants");
-	ips -= totalAntsIncome;
+	ips -= totalAntsIncome; // TODO IPS change to IPD
 	document.getElementById('ips').innerHTML = ips;
 
 	ants = 0;

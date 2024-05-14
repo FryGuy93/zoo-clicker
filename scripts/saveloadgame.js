@@ -84,7 +84,7 @@ function loadGame(){
 		ants = allItems[1];
 		aphids = allItems[2];
 		fleas = allItems[3];
-		ips = allItems[4];
+		ips = allItems[4]; // TODO IPS change to IPD
 		btnUpgLvl = allItems[5];
 		day = allItems[6];
 		isInsectsUnlocked = allItems[7];
