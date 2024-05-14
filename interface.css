@@ -5,28 +5,129 @@ topbar: 9
 debugbar: 99
 */
 
+
+/*
+
+@media (min-width: @screen-sm-min) // >= 768px (small tablet)
+@media (min-width: @screen-md-min) // >= 992px (medium laptop)
+@media (min-width: @screen-lg-min) // >= 1200px (large desktop)
+
+@media (max-width: @screen-xs-max) { // < 768px (xsmall phone)
+@media (max-width: @screen-sm-max) { // < 992px (small tablet)
+@media (max-width: @screen-md-max) { // < 1200px (medium laptop)
+
+	.container
+.container-fluid
+*/
+/* || Reset */
+/*
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+button {
+	font: inherit;
+}
+*/
+
+/* || Variables */
+/* || General Styles */
+/*
+html {
+	font-size: 2.5rem;
+}
+*/
+/* || Utility Classes */
+/*
+.underline {
+	text-decoration: underline;
+}
+*/
+/* || Components/Blocks */
+/*
+responsive button...
+.myButton {
+	text-decoration: underline;
+}
+
+  width: 100%;
+   min-width: 50px;  // add this if you want
+   max-width: 300px; // add this if  you want, adjust accordingly
+*/
+
+
 :root {
 	--darkmodebody: #131d26;
 	--darkmodetext: #ffffff;
+	/*
+	TODO dark mode buttons and text
+	--darkmodetext: #ffffff;
+	*/
 	--mainColor1: #8fa843;
 	--mainColor2: #B3D6A5;
+	--buttonColor: rgba(255,204,0,1);
+	--buttonTextColor: rgba(0,0,0,1);
+	--url0: url("/images/zooclickersbanner.jpg");
 	--url1: url("/images/zoodollarcoin_clicked.png") no-repeat;
 	--url2: url("/images/zoodollarcoin_hover.png") no-repeat;
 	--url3: url("/images/incomePerDay.png") no-repeat;
 	--url4: url("/images/day.png") no-repeat;
 	--url5: url("/images/visitors.png") no-repeat;
 	--url6: url("/images/entryPrice.png") no-repeat;
+	--url7: url("/images/zoodollarcoin.png") no-repeat;
 }
 
 body {
 	background: var(--darkmodebody);
 	color: var(--darkmodetext);
 	text-align: center;
+	/*
 	width: 1000px;
-	/*80%*/
+	*/
+	width: 70%;
+	font-size: 1vw;
 	margin-left:auto;
 	margin-right:auto;
 }
+#bannerImage {
+	content: var(--url0);
+	width: 100%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	/*
+	alt="Zoo Clickers Banner"  //alt breaks it?
+
+	content: url("/images/zooclickersbanner.jpg");
+	content: var(--url0);
+
+	background: var(--url0);
+	background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+	object-fit: cover;
+	
+
+	background-size: contain;
+	width: 20em;
+	height: 20em;
+	div.bannerImage {
+	margin:0; 
+	padding:0; 
+	background-image: var(--url0);
+	background-position: center;
+	background-image:url('yourimage.file');
+	
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	*/
+}
+/*Unused*/
+#banner {
+}
+
 .nav-tabs{
 	/* Override Bootstrap
 	--bs-nav-link-disabled-color: var(--mainColor1);
@@ -40,25 +141,65 @@ body {
 	margin: auto;
 	width: 80%;
 	*/
-	text-align: center;
-}
+	display: flex;
+	padding-right: 20px;
 
-#topbar{
-	background: var(--mainColor1);
-	position: fixed;
-	top: 0;
-	/*
-	width: 80%;
-	*/
-	width: 1000px;
 	text-align: center;
+	opacity: 0.7;
+	position: fixed;
+	top: 7em;
+	width: 70%;
 	margin: auto;
 	z-index: 9;
+	background: var(--mainColor1);
+	flex-flow: nowrap; /*NOT WORKING?*/
+	
+}
+#topbarContainer * {
+	font-size: 2vw;
+	/*
+	display: flex;
+	*/
+	width: 100%;
+}
+
+
+#topbar{
+	/*
+	width: 1000px;
+	*/
 }
 
 /* TopBar space between elements*/
 .nav > li{
+	/*
 	padding-right: 20px;
+    margin-left: auto;
+	
+	display: flex;
+	width: 100%;
+	
+	.nav > ul{
+		
+	justify-content: space-between;
+	height: 100%;
+	flex-direction: row;
+	flex-flow: nowrap;
+	*/
+}
+
+.nav {
+	flex-wrap: nowrap;
+}
+
+.nav h5{
+	/*
+	TODO move to under thing...
+	*/
+	font-size: 3vw;
+	/*
+	padding: 20px;
+	*/
 }
 
 #introText{
@@ -152,62 +293,100 @@ body {
 	height: 107px;
 }
 
-button {
+.zc_button {
+	/*
+	width: 10%;
+	margin-left: 425px;
 	width: 150px;
-    padding:10px;
-    background-color:rgba(255,204,0,1);
+	width: 100%;
+	*/
+	width: auto;
+	height: auto;
+    padding: 10px;
+    background-color: var(--buttonColor);
+    color: var(--buttonTextColor);
     border-radius:25px;
     cursor:pointer;
     display:inline-block;
-	/*margin-left: 425px;*/
 	margin-top: -35px;
+	/*
+	font-size: 0.8rem;
+	*/
+	font-size: 1vw;
 }
 
-button:hover {
+.zc_button :hover {
     background-color: white; 
 }
 
 /*Button clicked*/
-button:active{
+.zc_button :active{
 	background-color:white;
- }
+}
 
-.manualButton {
+
+#zooDollarsButtonContainer {
+	background-color: #131d26; /*BROKE*/
+	display: flex; 
+	/*
+	flex-wrap: wrap;
+	text-align: left;
+	*/
+	/*TODO keep button on left - let number expand right*/
+}
+.zooDollarsButton {
 	background: var(--url1);
-	margin-left: 20px;
-	padding:68px;
-}
-
-.manualButton:hover {
 	/*
-	background:url(/images/zoodollarcoinhover.png) no-repeat;
+	width: 100px;
+	min-width: 20px;
+	height: 100px;
 	*/
-	background: var(--url2);
-	margin-left: 20px;
-	padding:68px;
-}
-/*Add funds button clicked*/
-.manualButton:active{
-	/*
-	inset: 4px -4px 0 #000000;
-	border-radius: 555px;
-	background-color:red;
-	margin-top: 10px;
-    margin-left: 10px;
-	*/
-	background:url(/images/zoodollarcoin.png) no-repeat;
-	margin-left: 2px;
- }
-
- .manualButton2 {
-	width: 50px;
-	height: 50px;
-	background-image: url(/images/zoodollarcoin_clicked.png);
-	background-size: cover;
-	background-repeat: no-repeat;
+	width: 7em;
+	height: 7em;
 	background-position: center;
+	background-size: contain;
 	cursor:pointer;
+
+	z-index: 9;
+	position: fixed;
+	top: 0;
+	left: 45%;
+	/*
+	display: flex;
+	padding-right: 20px;
+	
+	text-align: center;
+	opacity: 0.7;
+	width: 70%;
+	margin: auto;
+	background: var(--mainColor1);
+	flex-flow: nowrap;
+	*/
+	
+	/*why 30%?*/
+	
+	/*
+	width: 100%; 
+	min-width: 100px;
+	
+	min-width: 20px;
+	flex: 1;
+	margin-left: 20px;
+	padding:68px;
 	margin: 4px;
+	*/
+
+	 /*
+	 width: 50px;
+	 height: 50px;
+	width: 100%;
+	height: 100%;
+
+	background-image: url(/images/zoodollarcoin_clicked.png);
+	background-size: auto;
+	background-repeat: no-repeat;
+	*/
+	
 	/*
 	src: "zoodollarcoin_clicked.png";
 	background:url(zoodollarcoin_clicked.png);
@@ -228,11 +407,44 @@ button:active{
 	*/
 }
 
+.zooDollarsButton:hover {
+	/*
+	background:url(/images/zoodollarcoinhover.png) no-repeat;
+	margin-left: 20px;
+	padding:68px;
+	*/
+	background: var(--url2);
+	background-position: center;
+	background-size: contain;
+	cursor:pointer;
+
+}
+/*Add funds button clicked*/
+.zooDollarsButton:active{
+	/*
+	inset: 4px -4px 0 #000000;
+	border-radius: 555px;
+	background-color:red;
+	margin-top: 10px;
+    margin-left: 10px;
+	margin-left: 2px;
+	*/
+	background: var(--url7);
+	background-position: center;
+	background-size: contain;
+	cursor:pointer;
+
+ }
+
 
 #btnUpg {
 	padding: 0;
 	margin: 0;
+	width: 100%;
+	height: auto;
+	font-size: 1vw;
 	/*
+	width: fit-content;
 	margin-left: 400px;
 	width: 200px;
 	margin-top: 50px;
@@ -244,7 +456,9 @@ button:active{
 #btnStats {
 	padding: 0;
 	margin: 10px;
+	/*
 	width: 100%;
+	*/
 }
 
 div:hover:before {
@@ -254,6 +468,82 @@ div:hover:before {
     margin-left: 100px;
     border-radius: 3px;
 }
+
+
+#zooDollarsContainer{
+	/*
+	width: 100px; 
+	text-align: left;
+	font-size: 2em;
+	*/
+	font-size: 1vw;
+
+}
+	
+#zoodollars{
+}
+
+#IPDContainerContainer {
+	/*
+	display: flex;
+	*/
+}
+
+.IPDContainer{
+	background: var(--url3);
+	/*
+	max-width: 100%;
+	min-width: 20px;
+	flex-flow: row nowrap;
+  	align-items: center;
+		img { 
+		object-fit: contain;
+		}
+	width: 50px;
+	height: 50px;
+	display: flex;
+
+	width: 50px;
+	height: 50px;
+	background-image: url(/images/zoodollarcoin_clicked.png);
+	*/
+	
+}
+
+.DayContainer{
+	background: var(--url4);
+
+	-webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+
+@-moz-keyframes spin { 
+    100% { -moz-transform: rotate(720deg); } 
+}
+@-webkit-keyframes spin { 
+    100% { -webkit-transform: rotate(720deg); } 
+}
+@keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(720deg); 
+        transform:rotate(720deg); 
+    } 
+}
+
+.VisitorsContainer{
+	background: var(--url5);
+}
+
+.EntryPriceContainer{
+	background: var(--url6);
+}
+
+
+
+
+
+
 
 
 
@@ -296,9 +586,16 @@ div:hover:before {
 #animal-button {
 	background-color: #406328;
 	position: relative; 
+	left: -14vw; 
+	top: 82%; 
+	font-size: 1vw; 
+	width: 14vw; 
+	
+	/*
 	left: -9.1em; 
 	top: 90%; 
 	width: 6em;
+	*/
 }
 
 #animal-button:hover {
@@ -427,14 +724,17 @@ div:hover:before {
 .liveToastContainer{
 	/*
 	toast-container position-fixed top-0 start-0 p-3
+	width: 30em; 
 	*/
+	width: 30vh; 
 	position: fixed;
-	top: 100px;
-	left: 0;
+	top: 10%;
+	right: 5%;
 	z-index: 99;
 }
 
 #loadGame{
+	font-size: 2vh; 
 	height: 50px;
 	width: 50px;
 	position: fixed;
@@ -443,6 +743,7 @@ div:hover:before {
 	right: 20px;
 }
 #saveGame{
+	font-size: 2vh; 
 	height: 50px;
 	width: 50px;
 	position: fixed;
@@ -462,6 +763,10 @@ div:hover:before {
 }
 
 #darkModeSwitch{
+	font-size: 2vh; 
+	/*
+	width: 10vh; 
+	*/
 	height: 50px;
 	width: 50px;
 	position: fixed;
@@ -470,36 +775,32 @@ div:hover:before {
 	left: 20px;
 }
 
-/**/
-#debugbar{
+/*debugbar*/
+#debugbarcontainer{
 	background: red; 
 	position: fixed; 
 	top: 0; 
 	left: 0; 
 	text-align: center; 
 	width: 100%; 
+	/*
 	font-size: 6px;
+	*/
+	font-size: 0.5vw;
+	
 	z-index: 99; 
 }
 
-#zooDollarsContainer{
-/*
-width: 100px; 
-text-align: left;
-*/
-	font-size: 35px;
-}
-
-#zoodollars{
-}
 
 #achievementBtns{
-	width: 150px;
+	width: 10%;
 	position: fixed;
 	z-index: 99;
 	top: 20px;
-	right: 10px;
+	left: 10px;
 	/*
+	width: fit-content;
+	width: 150px;
     background-color:rgba(25,204,0,1);
 	text-align: center;
 	padding:10px;
@@ -514,7 +815,15 @@ text-align: left;
 
 #achievementBtns > button{
 	margin: 0px;
+	width: 100%;
+
+	/*
+	width: fit-content;
+	*/
     background-color:rgb(255, 162, 0);
+}
+#achievementsHeader > h5{
+	font-size: 1.5em;
 }
 
 /*
@@ -523,62 +832,12 @@ text-align: left;
 }
 */
 
-.IPDContainer{
-	width: 50px;
-	height: 50px;
-	background: var(--url3);
-	/*
-	background-image: url(/images/zoodollarcoin_clicked.png);
-	*/
-	background-size: contain;
-	background-position: center;
-}
 
-.DayContainer{
-	width: 50px;
-	height: 50px;
-	background: var(--url4);
-	/*
-	background-image: url(/images/zoodollarcoin_clicked.png);
-	*/
-	background-size: contain;
-	background-position: center;
-	-webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
-}
-
-@-moz-keyframes spin { 
-    100% { -moz-transform: rotate(720deg); } 
-}
-@-webkit-keyframes spin { 
-    100% { -webkit-transform: rotate(720deg); } 
-}
-@keyframes spin { 
-    100% { 
-        -webkit-transform: rotate(720deg); 
-        transform:rotate(720deg); 
-    } 
-}
-
-.VisitorsContainer{
-	width: 50px;
-	height: 50px;
-	background: var(--url5);
-	/*
-	background-image: url(/images/zoodollarcoin_clicked.png);
-	*/
-	background-size: contain;
-	background-position: center;
-}
-
-.EntryPriceContainer{
-	width: 50px;
-	height: 50px;
-	background: var(--url6);
-	/*
-	background-image: url(/images/zoodollarcoin_clicked.png);
-	*/
+/* Needs to be lower down...*/
+.topBarImage{
+	width: fit-content;
+	min-width: 20px;
+	height: 60%;
 	background-size: contain;
 	background-position: center;
 }
