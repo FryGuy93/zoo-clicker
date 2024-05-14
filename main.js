@@ -18,16 +18,21 @@ LICENSE file in the root directory of this source tree.
 "use strict";
 
 // Starting script
-window.addEventListener("load", startScript); // NOT LOADING BEFORE loading.js...
+//window.addEventListener("load", startScript); // NOT LOADING BEFORE loading.js...
 function startScript() {
 	try {
-		document.getElementById("unlockInsectsCost").innerHTML = unlockInsectsCost; // CANNOT FIND ELEMENT...
-		document.getElementById("unlockArachnidsCost").innerHTML = unlockArachnidsCost;
+		$('#unlockInsectsCost').text(unlockInsectsCost);
+		$('#unlockArachnidsCost').text(unlockArachnidsCost);
+		//document.getElementById("unlockInsectsCost").innerHTML = unlockInsectsCost; // CANNOT FIND ELEMENT...
+		//document.getElementById("unlockArachnidsCost").innerHTML = unlockArachnidsCost;
 		//statsShowHide(); // TESTING
-		settingsLoad();
 	} catch (error) {
 		console.log("Known error...#1");
 	}
+	loadCopyright();
+	settingsLoad();
+	openToast("Welcome!");
+	preloadConfetti();
 }
 // Game loop - Update stats - 1 second = 1 day
 // Delta time? window.requestAnimationFrame?
@@ -40,6 +45,8 @@ function mainGameLoop() {
 	mainCalculations();
 	mainUIUpdate();
 	checkAchievements();
+	//openToast("New day!");
+
 }
 function mainCalculations() {
 	// People = animal * animal attraction (per animal)
@@ -61,7 +68,7 @@ function mainCalculations() {
 
 function mainUIUpdate() {
 	// TODO change to per day - rename ips
-	document.getElementById('ips').innerHTML = zooDollarsPerDay;
+	document.getElementById('ipd').innerHTML = zooDollarsPerDay;
 	
 	document.getElementById("visitorsAttracted").innerHTML = visitorsPerDay;
 	document.getElementById("zooEntryPrice").innerHTML = ticketPrice;
