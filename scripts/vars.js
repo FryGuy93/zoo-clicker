@@ -11,16 +11,12 @@ var isDebugMode = false;
 var isDebugModeLocalHostOnly = true; //http://localhost:3000/debug.html
 var hasSettingsLoaded = false;
 var zoodollars = 0;
-var ips = 0;
+var ips = 0; // TODO IPS change to IPD
 var day = 0;
-var onehundred = 10000; //00000
 var isCheckDollars_Achievement_Unlocked = false;
 var isCheckUnlocks_Achievement_Unlocked = false;
 var btnUpgLvl = 1;
 var btnUpgCost = 10;
-var gameLoopTime = 1000; // 1000 = 1 second
-var unlockInsectsCost = 25;
-var unlockArachnidsCost = 500;
 var isInsectsUnlocked = false;
 var isArachnidsUnlocked = false;
 var unlockedAreasCount = 0; // Each area worth same?
@@ -30,24 +26,28 @@ var zooDollarsPerDay = 0
 var ticketPrice = 0;
 var isDarkMode = false;
 var isPageFinishedLoading = false;
+const onehundred = 10000; //1000000000 // achievement
+const gameLoopTime = 1000; // 1000 = 1 second
+const unlockInsectsCost = 25;
+const unlockArachnidsCost = 500;
 
 // Animal variables
-var costMultiplier = 1.1; //insectMultiplier
+const costMultiplier = 1.1; //insectMultiplier
 
 var ants = 0;
-var antCostMultiplier = 10;
-var antIPDMultiplier = 1; // USED?
-var antsAttraction = 1;
+const antCostMultiplier = 10;
+const antIPDMultiplier = 1; // USED?
+const antsAttraction = 1;
 
 var aphids = 0;
-var aphidCostMultiplier = 25;
-var aphidIPDMultiplier = 2;
-var aphidsAttraction = 2;
+const aphidCostMultiplier = 25;
+const aphidIPDMultiplier = 2;
+const aphidsAttraction = 2;
 
 var fleas = 0;
-var fleaCostMultiplier = 50;
-var fleaIPDMultiplier = 5;
-var fleasAttraction = 3;
+const fleaCostMultiplier = 50;
+const fleaIPDMultiplier = 5;
+const fleasAttraction = 3;
 
 //#region Classes/Objects
 //var animal = {a:1}; // New object
